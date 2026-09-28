@@ -1,21 +1,17 @@
 # Astoria Medical Centre website
 
-Static HTML/CSS/JavaScript implementation of the Figma landing page.
+Static HTML, CSS and JavaScript version of the Figma Home, About Us, Services and appointment panel designs. GitHub Pages serves the site directly; no build step or paid site builder is required.
 
-## Run locally
+## Preview locally
 
-Because the site uses normal browser assets, serve the folder with any static server:
+Run `python3 -m http.server 8765` in the project folder and open `http://localhost:8765/`. The routes are `index.html`, `about.html`, and `services.html`.
 
-```bash
-python3 -m http.server 4173
-```
+## Doctor profiles
 
-Then open `http://localhost:4173`.
+Edit the `doctors` array near the top of `app.js` to update a physician's name, credentials or `accepting` state, or add/remove a profile. The cards in the supplied Figma design deliberately use “Dr. Name” and blank portrait placeholders. Verify real profiles and current availability with the clinic before treating this prototype as a live directory. For nontechnical staff, connect this data to a reviewed CMS or build a controlled GitHub edit workflow.
 
-## Content management plan
+## Booking
 
-The doctor list is currently stored in `app.js` in the `doctors` array. Each doctor has an `accepting` boolean that controls the public status badge and the appointment dropdown. This is the field to connect to Google Sheets / Apps Script later.
+The appointment panel matches the Figma layout but has no secure booking endpoint. It intentionally does not transmit or store form data and displays the clinic phone number when submitted. Do not accept health information through a GitHub Pages form or a general-purpose spreadsheet. Integrate the clinic's approved booking provider, privacy notice and confirmation flow before enabling submissions. Similarly, confirm service and enrollment promises with the clinic before production use.
 
-The appointment form is intentionally not connected to a live endpoint yet. Add the approved secure Google Apps Script web-app URL to `FORM_ENDPOINT` in `setupAppointmentForm()` only after the clinic confirms what information it is allowed to collect.
-
-The Figma image URLs are temporary design assets. Before production launch, download or replace them with permanent assets owned by the clinic and update the `src` values.
+All photographs, logo artwork, and icons used by the pages live under `assets/`. The site does not depend on expiring Figma asset links.

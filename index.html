@@ -1,298 +1,51 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Astoria Medical Centre provides trusted primary care, family medicine and clinical walk-in services." />
-    <title>Astoria Medical Centre</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-
-    <header class="site-header">
-      <nav class="main-nav container" aria-label="Main navigation">
-        <a class="brand" href="#home" aria-label="Astoria Medical Centre home">
-          <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/37fbd.svg" alt="Astoria Medical Centre" />
-        </a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-          <span></span><span></span><span></span>
-          <span class="sr-only">Toggle navigation</span>
-        </button>
-        <div class="site-menu" id="site-menu">
-          <a class="nav-link active" href="#home">Home</a>
-          <a class="nav-link" href="#about">About Us</a>
-          <a class="nav-link" href="#services">Services</a>
-          <a class="nav-link" href="#doctors">Departments</a>
-          <a class="nav-link" href="#hours">Our Clinics</a>
-          <a class="nav-link" href="#faq">FAQ</a>
-          <a class="nav-link" href="#contact">Contact</a>
-        </div>
-        <a class="button button-small button-primary nav-cta" href="#appointment">Register Online</a>
-      </nav>
-    </header>
-
-    <main id="main-content">
-      <section class="hero" id="home">
-        <img class="hero-vector" src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/36307.svg" alt="" aria-hidden="true" />
-        <div class="hero-inner container">
-          <div class="hero-content">
-            <div class="hero-intro">
-              <span class="section-tag">Now Accepting New Patients</span>
-              <div class="hero-title-block">
-                <h1>Welcome to Astoria Medical Centre</h1>
-                <p class="hero-description">We are now accepting new patients! Register online today. Our dedicated team of family physicians is committed to providing exceptional medical care to individuals and families.</p>
-              </div>
-            </div>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#appointment">Register as New Patient</a>
-              <a class="button button-secondary" href="#appointment">Book Appointment</a>
-            </div>
-            <div class="social-proof">
-              <div class="avatar-stack" aria-hidden="true">
-                <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/e2bf6.png" alt="" />
-                <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/822fd.png" alt="" />
-                <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/23285.png" alt="" />
-              </div>
-              <span>Join over 5,000+ families choosing Astoria</span>
-            </div>
-          </div>
-          <div class="hero-graphic">
-            <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/94db6.png" alt="A physician meeting with patients at Astoria Medical Centre" />
-          </div>
-        </div>
-      </section>
-
-      <section class="working-hours" id="hours">
-        <div class="working-hours-content container">
-          <div class="working-hours-top">
-            <div class="working-hours-header">
-              <span class="section-tag">Working Hours</span>
-              <div class="working-hours-title">
-                <h2>Plan your visit with confidence</h2>
-                <p>Our walk-in and appointment windows are designed to support urgent and routine care across the week.</p>
-              </div>
-            </div>
-            <div class="hours-cards">
-              <div class="hours-card">
-                <span class="day-badge">M-F</span>
-                <span class="hours-info"><strong>Monday-Friday</strong><small>08:00AM - 08:00PM</small></span>
-              </div>
-              <div class="hours-card">
-                <span class="day-badge">M-F</span>
-                <span class="hours-info"><strong>Walk-in (Mon-Fri)</strong><small>08:00AM - 05:00PM</small></span>
-              </div>
-              <div class="hours-card">
-                <span class="day-badge">SAT</span>
-                <span class="hours-info"><strong>Saturday Walk-in</strong><small>09:00AM - 03:00PM</small></span>
-              </div>
-              <div class="hours-card">
-                <span class="day-badge">SUN</span>
-                <span class="hours-info"><strong>Sunday Walk-in</strong><small>No Available</small></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="working-lower">
-            <article class="request-card">
-              <div class="request-heading">
-                <h3>Book a request</h3>
-                <p>You can send an email or submit an online<br />form to book your request</p>
-              </div>
-              <div class="request-channel-list">
-                <a class="request-channel" href="mailto:info@astoriamedicalcentre.ca">
-                  <span class="request-icon"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/6b9f1.svg" alt="" /></span>
-                  <span><strong>Email Address</strong><small>info@astoriamedicalcentre.ca</small></span>
-                </a>
-                <a class="request-channel" href="#appointment">
-                  <span class="request-icon"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/1cb1b.svg" alt="" /></span>
-                  <span><strong>Appointment Requests</strong><small>Click to submit an online form</small></span>
-                </a>
-              </div>
-              <p class="response-note"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/f65ee.svg" alt="" /><span>We aim to respond to all electronic<br />inquiries within 24 hours.</span></p>
-            </article>
-            <div class="working-dashboard-image">
-              <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/fd0bd.png" alt="Astoria Medical Centre care team" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="new-patients-spotlight" id="new-patients">
-        <div class="spotlight-inner container">
-          <div class="spotlight-image" aria-label="Astoria Medical Centre patient care">
-            <img class="spotlight-base" src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/19863.png" alt="Patients receiving care at Astoria Medical Centre" />
-            <div class="spotlight-image-stack" aria-hidden="true">
-              <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/c4a6c.png" alt="" />
-              <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/01ee0.png" alt="" />
-            </div>
-          </div>
-          <div class="spotlight-content">
-            <div class="spotlight-intro">
-              <span class="section-tag">Get Started</span>
-              <div class="spotlight-title-block">
-                <h2>New Patient Enrollment</h2>
-                <p>Starting with a new medical center should be effortless. We have simplified our enrollment pathway so you and your dependents can access premium healthcare promptly.</p>
-              </div>
-            </div>
-            <div class="enrollment-steps">
-              <div class="enrollment-step"><span>1</span><p>Complete the secure online registration form</p></div>
-              <div class="enrollment-step"><span>2</span><p>Transfer previous medical records automatically</p></div>
-              <div class="enrollment-step"><span>3</span><p>Schedule your introductory health screening visit</p></div>
-            </div>
-            <div class="inline-actions">
-              <a class="button button-primary button-small" href="#appointment">Register Online Today</a>
-              <a class="button button-secondary button-small" href="#faq">Download Patient Guide (PDF)</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about section-muted" id="about">
-        <div class="container about-inner">
-          <div class="about-header">
-            <span class="section-tag">About Us</span>
-            <div class="about-title-block">
-              <h2>About Us</h2>
-              <p>Clinic with innovative approach to treatment</p>
-            </div>
-          </div>
-          <div class="pillars-grid">
-            <article class="pillar-card">
-              <div class="pillar-image mission-image">
-                <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/02481.png" alt="Doctor consulting with a patient" />
-                <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/a0c28.png" alt="" aria-hidden="true" />
-              </div>
-              <div class="pillar-copy"><h3>Our Mission</h3><p>Providing high-quality, patient-centered healthcare with compassion and respect. We offer comprehensive medical services tailored to meet your unique needs.</p></div>
-            </article>
-            <article class="pillar-card">
-              <div class="pillar-copy"><h3>Our Approach</h3><p>We believe a strong patient-doctor relationship is key to effective healthcare. We listen, answer questions, and involve you in care decisions.</p></div>
-              <div class="pillar-image approach-image">
-                <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/94e07.png" alt="Clinician supporting a patient" />
-                <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/9d022.png" alt="" aria-hidden="true" />
-              </div>
-            </article>
-            <article class="pillar-card">
-              <div class="pillar-image team-image">
-                <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/57dae.png" alt="Astoria Medical Centre care team" />
-                <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/3c5fe.png" alt="" aria-hidden="true" />
-              </div>
-              <div class="pillar-copy"><h3>Our Team</h3><p>Our skilled and compassionate physicians stay current with latest advances to ensure you receive the best possible treatment.</p></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="services" id="services">
-        <div class="container services-inner">
-          <div class="section-block-header">
-            <span class="section-tag">Our Services</span>
-            <div class="section-title-block"><h2>Our Services</h2><p>We provide assistance in various spheres</p></div>
-          </div>
-          <div class="services-grid" id="services-grid"></div>
-        </div>
-      </section>
-
-      <section class="doctors section-muted" id="doctors">
-        <div class="container doctors-inner">
-          <div class="section-block-header">
-            <span class="section-tag">Our Doctors</span>
-            <div class="section-title-block"><h2>Our Family Physicians</h2><p>Meet the dedicated physicians guiding care across our clinics.</p></div>
-          </div>
-          <div class="doctors-grid" id="doctors-grid"></div>
-        </div>
-      </section>
-
-      <section class="faq" id="faq">
-        <div class="container faq-inner">
-          <div class="faq-intro">
-            <span class="section-tag">FAQ</span>
-            <div class="faq-title-block">
-              <h2>Frequently Asked Questions</h2>
-              <p>Answers to the questions patients ask most often.</p>
-            </div>
-          </div>
-          <div class="faq-list">
-            <details class="faq-item" open>
-              <summary>How Can I Schedule an Appointment?<span aria-hidden="true">−</span></summary>
-              <p>Call during office hours or use our online booking system on the website.</p>
-            </details>
-            <details class="faq-item">
-              <summary>What Should I Bring to My Appointment?<span aria-hidden="true">+</span></summary>
-              <p>Please bring your health card, photo identification, a list of your current medications, and any relevant medical records or referral documents.</p>
-            </details>
-            <details class="faq-item">
-              <summary>How do I cancel or reschedule an appointment?<span aria-hidden="true">+</span></summary>
-              <p>Contact the clinic as soon as possible during office hours. Our team will help you cancel or find another suitable appointment time.</p>
-            </details>
-            <details class="faq-item">
-              <summary>What should I do in case of a medical emergency?<span aria-hidden="true">+</span></summary>
-              <p>Call 911 or go to the nearest emergency department immediately. Do not use the online appointment form for urgent or life-threatening situations.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Is my medical information kept confidential?<span aria-hidden="true">+</span></summary>
-              <p>Yes. We protect your personal health information and only share it with your consent, or when disclosure is required by law.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="appointment" id="appointment">
-        <div class="container appointment-grid">
-          <div class="appointment-visual">
-            <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/47721.png" alt="A calm consultation room at Astoria Medical Centre" />
-            <div class="visual-scrim"></div>
-            <div class="appointment-caption"><strong>Book Your Appointment</strong><span>Connect instantly with our certified clinical experts to receive personalized primary care.</span></div>
-            <span class="floating-icon floating-icon-one"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/d0e1b.svg" alt="" /></span>
-            <span class="floating-icon floating-icon-two"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/01070.svg" alt="" /></span>
-            <span class="floating-icon floating-icon-three"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/6969c.svg" alt="" /></span>
-          </div>
-          <div class="appointment-form-card">
-            <div class="section-heading appointment-heading">
-              <span class="section-tag">Appointment Request</span>
-              <h2>Schedule Online</h2>
-              <p>Scheduling an appointment is easy and convenient. We are committed to providing timely and efficient healthcare services to our patients.</p>
-            </div>
-            <form id="appointment-form">
-              <div class="form-fields">
-                <div class="form-row">
-                  <label>Your Name<input type="text" name="name" placeholder="E.g. John Doe" required /></label>
-                  <label>Your Email<input type="email" name="email" placeholder="E.g. john@example.com" required /></label>
-                </div>
-                <div class="form-row">
-                  <label>Your Phone<input type="tel" name="phone" placeholder="E.g. +1 (555) 000-0000" required /></label>
-                  <label>Your Family Doctor<select name="doctor" id="doctor-select" required></select></label>
-                </div>
-                <label>Please provide us with the reason of the appointment<textarea name="reason" placeholder="Briefly describe your symptoms or the clinical service you require..." required></textarea></label>
-              </div>
-              <div class="form-actions">
-                <button class="button button-primary form-submit" type="submit">Book an Appointment</button>
-                <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer" id="contact">
-      <div class="container footer-cols">
-        <div class="footer-brand">
-          <img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/6d2c0.svg" alt="Astoria Medical Centre" />
-          <p>Your trusted primary care and clinical walk-in facility. Dedicated to exceptional patient experiences, accessibility, and modern medical practices.</p>
-        </div>
-        <div class="footer-links-wrap">
-          <div class="footer-links"><h3>Quick Links</h3><a href="#home">Home</a><a href="#about">About Us</a><a href="#services">Services</a><a href="#faq">FAQ</a><a href="#contact">Reviews</a><a href="#contact">Contact</a></div>
-          <div class="footer-contact"><h3>Contact Astoria</h3><p>Support Email: info@astoriamedicalcentre.ca</p><p>Phone: +1 343-478-1009</p></div>
-        </div>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Astoria Medical Centre offers family medicine, preventive care and clinical walk-in services.">
+  <title>Astoria Medical Centre | Family Care</title>
+  <link rel="icon" href="assets/astoria-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main-content">Skip to content</a><div id="site-header"></div>
+  <main id="main-content">
+    <section class="home-hero" id="home">
+      <div class="container home-hero-copy">
+        <h1>Welcome to Astoria<br>Medical Centre</h1>
+        <div class="home-hero-aside"><p>We are now accepting new patients! Register online today. Our dedicated team of family physicians is committed to providing exceptional medical care to individuals and families.</p><div class="button-row"><button class="button button-primary" type="button" data-booking>Register Patient</button><button class="button button-outline" type="button" data-booking>Book Appointment</button></div></div>
       </div>
-      <div class="container footer-divider"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/c61f5.svg" alt="" /></div>
-      <div class="container footer-bottom"><p>© Astoria Medical Centre. All rights reserved.</p><div class="social-links"><a href="#contact" aria-label="Facebook"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/d6aae.svg" alt="" /></a><a href="#contact" aria-label="Twitter"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/b5271.svg" alt="" /></a><a href="#contact" aria-label="Instagram"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/55415.svg" alt="" /></a><a href="#contact" aria-label="LinkedIn"><img src="https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35/122d5.svg" alt="" /></a></div></div>
-    </footer>
-
-    <script src="app.js"></script>
-  </body>
-</html>
+      <div class="container hero-picture hero-picture-home"><img src="assets/hero-family.jpg" alt="Parents with their child receiving care in a hospital"></div>
+    </section>
+    <section class="home-hours" id="hours"><div class="container hours-layout">
+      <div class="hours-intro"><h2>Plan your visit with confidence</h2><p>Our walk-in and appointment windows are designed to support urgent and routine care across the week.</p><button class="button button-primary" type="button" data-booking>Book Appointment</button></div>
+      <div class="hours-grid" aria-label="Working hours">
+        <div class="hours-card"><span class="day-badge">M-F</span><span><strong>Monday-Friday</strong><small>08:00AM - 08:00PM</small></span></div>
+        <div class="hours-card"><span class="day-badge">M-F</span><span><strong>Walk-in (Mon-Fri)</strong><small>08:00AM - 05:00PM</small></span></div>
+        <div class="hours-card"><span class="day-badge">SAT</span><span><strong>Walk-in (Saturday)</strong><small>09:00AM - 03:00PM</small></span></div>
+        <div class="hours-card"><span class="day-badge">SUN</span><span><strong>Walk-in (Sunday)</strong><small>No Available</small></span></div>
+      </div>
+    </div></section>
+    <section class="enrollment" id="new-patients"><div class="container enrollment-layout">
+      <img class="enrollment-image" src="assets/clinic-team.jpg" alt="People speaking with the care team at a clinic reception">
+      <div class="enrollment-copy"><div><h2>New Patient Enrollment</h2><p>Starting with a new medical center should be effortless. We have simplified our enrollment pathway so you and your dependents can access premium healthcare promptly.</p></div>
+        <ol class="steps"><li>Complete the secure online<br class="desktop-break"> registration form</li><li>Transfer previous medical<br class="desktop-break"> records automatically</li><li>Schedule your introductory<br class="desktop-break"> health screening visit</li></ol>
+        <button class="button button-primary" type="button" data-booking>Book Appointment</button>
+      </div>
+    </div></section>
+    <section class="home-services" id="services"><div class="container"><div class="section-heading"><h2>Our Services</h2><p>We provide assistance in various spheres</p></div><div class="home-service-grid" id="home-service-grid"></div></div></section>
+    <section class="physicians" id="doctors"><div class="container"><div class="section-heading"><h2>Our Family Physicians</h2><p>Meet the dedicated physicians guiding care across our clinics.</p></div><div class="doctor-grid" id="doctor-grid"></div></div></section>
+    <section class="faq-section" id="faq"><div class="container faq-layout">
+      <div class="section-heading"><h2>Frequently Asked<br>Questions</h2><p>Answers to the questions<br>patients ask most often.</p></div>
+      <div class="faq-list">
+        <details class="faq-item" name="astoria-faq" open><summary>How Can I Schedule an Appointment?<span aria-hidden="true"></span></summary><p>Call during office hours or use our online booking system on the website.</p></details>
+        <details class="faq-item" name="astoria-faq"><summary>What Should I Bring to My Appointment?<span aria-hidden="true"></span></summary><p>Please bring your health card, photo identification, a list of your current medications, and any relevant medical records or referral documents.</p></details>
+        <details class="faq-item" name="astoria-faq"><summary>How do I cancel or reschedule an appointment?<span aria-hidden="true"></span></summary><p>Contact the clinic as soon as possible during office hours. Our team will help you cancel or find another suitable appointment time.</p></details>
+        <details class="faq-item" name="astoria-faq"><summary>What should I do in case of a medical emergency?<span aria-hidden="true"></span></summary><p>Call 911 or go to the nearest emergency department immediately. Do not use the online appointment form for urgent or life-threatening situations.</p></details>
+        <details class="faq-item" name="astoria-faq"><summary>Is my medical information kept confidential?<span aria-hidden="true"></span></summary><p>Contact the clinic directly for details of its privacy practices and how your health information is handled.</p></details>
+      </div>
+    </div></section>
+  </main><div id="site-footer"></div><div id="booking-panel"></div>
+</body></html>

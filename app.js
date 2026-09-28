@@ -1,173 +1,146 @@
 /*
- * Astoria Medical Centre
- *
- * The doctor and service arrays are the temporary content source for this
- * prototype. Replace or connect them to a secure content source when the
- * clinic is ready to manage this information outside the codebase.
+ * Static presentation data. The doctor cards in the Figma file use placeholder
+ * identities. Replace these entries with clinic-approved profiles and verify
+ * availability before treating this public prototype as an operational site.
  */
-const FIGMA_ASSETS = "https://www.figma.com/api/mcp/asset/97fb5661-be9a-4072-be65-57cfb6e38b35";
-
+const homeServices = [
+  { icon: "routine", title: "Routine Check-ups", description: "Regular health evaluations to monitor and maintain your well-being." },
+  { icon: "preventive", title: "Preventive Care", description: "Vaccinations, screenings, and wellness advice to prevent illness and promote healthy lifestyles." },
+  { icon: "chronic", title: "Chronic Disease Management", description: "Ongoing care and support for conditions such as diabetes, hypertension, and asthma." },
+  { icon: "pediatric", title: "Pediatric Care", description: "Well-child visits, vaccinations, and developmental screenings for children of all ages." },
+  { icon: "geriatric", title: "Geriatric Care", description: "Comprehensive geriatric assessments and management of age-related conditions." },
+  { icon: "mental", title: "Mental Health Services", description: "Support and treatment for conditions such as depression, anxiety, and stress-related issues." }
+];
+const serviceDetails = [
+  { icon: "routine", title: "Routine Check-ups", description: "Thoughtful, unhurried visits that establish your health baseline and keep small changes from becoming larger concerns.", benefits: ["Physical exams and health history", "Medication and lifestyle review", "Personalized follow-up plan"] },
+  { icon: "preventive", title: "Preventive Care", description: "Age-appropriate prevention shaped around your history, risks, goals, and the realities of your daily life.", benefits: ["Immunizations and screening plans", "Heart and metabolic health checks", "Practical nutrition and sleep guidance"] },
+  { icon: "chronic", title: "Chronic Disease Management", description: "Consistent physician guidance that connects symptoms, medication, specialist care, and everyday progress.", benefits: ["Regular monitoring and goal setting", "Medication coordination", "Specialist and allied-health referrals"] },
+  { icon: "pediatric", title: "Pediatric Care", description: "Warm, reassuring care that helps children thrive and gives parents clear answers at every stage.", benefits: ["Well-child visits and immunizations", "Growth and development checks", "Same-family continuity and guidance"] },
+  { icon: "geriatric", title: "Geriatric Care", description: "Respectful, coordinated support focused on independence, comfort, cognition, mobility, and quality of life.", benefits: ["Mobility, memory, and safety reviews", "Complex medication management", "Caregiver and community support"] },
+  { icon: "mental", title: "Mental Health Services", description: "A confidential first point of care for emotional well-being, with ongoing check-ins and referral support when needed.", benefits: ["Private, compassionate assessment", "Treatment and progress monitoring", "Counselling and specialist referrals"] }
+];
 const doctors = [
-  { name: "Dr. A", credentials: "CMO, MD, CCFP, FRCGP", image: `${FIGMA_ASSETS}/a343a.png`, accepting: false },
-  { name: "Dr. B", credentials: "MD, CCFP, MRCGP, Dip Derm.", image: `${FIGMA_ASSETS}/b6ed0.png`, accepting: false },
-  { name: "Dr. C", credentials: "MD, CCFP, MRCGP, Dip Derm.", image: `${FIGMA_ASSETS}/b229f.png`, accepting: true },
-  { name: "Dr. D", credentials: "MD, CCFP, MRCGP", image: `${FIGMA_ASSETS}/004c4.png`, accepting: true },
-  { name: "Dr. E", credentials: "MD, CCFP, MRCGP", image: `${FIGMA_ASSETS}/83331.png`, accepting: true },
-  { name: "Dr. F", credentials: "MD, CCFP, MRCGP", image: `${FIGMA_ASSETS}/a343a.png`, accepting: false },
-  { name: "Dr. G", credentials: "MD, CCFP, MRCGP", image: `${FIGMA_ASSETS}/fdca1.png`, accepting: true },
-  { name: "Dr. H", credentials: "MBChB, MRCP", image: `${FIGMA_ASSETS}/03729.png`, accepting: true },
-  { name: "Dr. I", credentials: "MBBS, MRCGP, CFPC", image: `${FIGMA_ASSETS}/228be.png`, accepting: true }
+  { name: "Dr. Name", credentials: "CMO, MD, CCFP, FRCGP", accepting: false },
+  { name: "Dr. Name", credentials: "MD, CCFP, MRCGP, Dip Derm.", accepting: false },
+  { name: "Dr. Name", credentials: "MD, CCFP, MRCGP, Dip Derm.", accepting: true },
+  { name: "Dr. Name", credentials: "MD, CCFP, MRCGP", accepting: true },
+  { name: "Dr. Name", credentials: "MD, CCFP, MRCGP", accepting: true },
+  { name: "Dr. Name", credentials: "MD, CCFP, MRCGP", accepting: false },
+  { name: "Dr. Name", credentials: "MD, CCFP, MRCGP", accepting: true },
+  { name: "Dr. Name", credentials: "MBChB, MRCP", accepting: true },
+  { name: "Dr. Name", credentials: "MBBS, MRCGP, CFPC", accepting: true }
 ];
 
-const services = [
-  { name: "Routine Check-ups", description: "Regular health evaluations to monitor and maintain your well-being.", icon: `${FIGMA_ASSETS}/20ee4.svg` },
-  { name: "Preventive Care", description: "Vaccinations, screenings, and wellness advice to prevent illness and promote healthy lifestyles.", icon: `${FIGMA_ASSETS}/9e375.svg` },
-  { name: "Chronic Disease Management", description: "Ongoing care and support for conditions such as diabetes, hypertension, and asthma.", icon: `${FIGMA_ASSETS}/532b0.svg` },
-  { name: "Pediatric Care", description: "Well-child visits, vaccinations, and developmental screenings for children of all ages.", icon: `${FIGMA_ASSETS}/ee10b.svg` },
-  { name: "Geriatric Care", description: "Comprehensive geriatric assessments and management of age-related conditions.", icon: `${FIGMA_ASSETS}/8bdfe.svg` },
-  { name: "Mental Health Services", description: "Support and treatment for conditions such as depression, anxiety, and stress-related issues.", icon: `${FIGMA_ASSETS}/4787f.svg` }
+const currentPage = document.body.dataset.page;
+const navItems = [
+  { label: "Home", url: "index.html", page: "home" },
+  { label: "About Us", url: "about.html", page: "about" },
+  { label: "Services", url: "services.html", page: "services" },
+  { label: "FAQ", url: "index.html#faq" },
+  { label: "Contact", url: "#contact" }
 ];
+const header = document.querySelector("#site-header");
+header.innerHTML = `<header class="site-header"><nav class="container nav-layout" aria-label="Main navigation">
+  <a class="brand" href="index.html" aria-label="Astoria Medical Centre home"><img src="assets/astoria-logo.png" alt="Astoria Medical Centre"></a>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
+  <div class="site-menu" id="site-menu">${navItems.map(item => `<a href="${item.url}" class="nav-link${item.page === currentPage ? " active" : ""}"${item.page === currentPage ? ' aria-current="page"' : ""}>${item.label}</a>`).join("")}</div>
+  <button class="button button-primary nav-cta" type="button" data-booking>Register Patient</button>
+</nav></header>`;
+const footer = document.querySelector("#site-footer");
+footer.innerHTML = `<footer class="site-footer" id="contact"><div class="container footer-main">
+  <div class="footer-brand"><a href="index.html" aria-label="Astoria Medical Centre home"><img src="assets/astoria-logo.png" alt="Astoria Medical Centre"></a><p>Your trusted primary care and clinical walk-in facility. Dedicated to exceptional patient experiences, accessibility, and modern medical practices.</p></div>
+  <div class="footer-links"><h2>Quick Links</h2><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="index.html#faq">FAQ</a><span>Reviews</span><a href="#contact">Contact</a></div>
+  <div class="footer-contact"><h2>Contact Astoria</h2><a href="mailto:info@astoriamedicalcentre.ca">Support Email: info@astoriamedicalcentre.ca</a><a href="tel:+13434781009">Phone: +1 343-478-1009</a></div>
+</div><div class="container footer-bottom"><small>© Astoria Medical Centre. All rights reserved.</small><div class="social-icons" aria-label="Social media icons"><img src="assets/icons/social-facebook.svg" alt=""><img src="assets/icons/social-twitter.svg" alt=""><img src="assets/icons/social-instagram.svg" alt=""><img src="assets/icons/social-linkedin.svg" alt=""></div></div></footer>`;
 
-const statusBadge = (accepting) => `
-  <span class="status-badge ${accepting ? "accepting" : "not-accepting"}">
-    <img src="${FIGMA_ASSETS}/${accepting ? "09306.svg" : "acb45.svg"}" alt="" />
-    <span>${accepting ? "Accepting" : "Not accepting"}</span>
-  </span>
-`;
-
-function renderServices() {
-  const target = document.querySelector("#services-grid");
-  if (!target) return;
-  target.innerHTML = services.map((service) => `
-    <article class="service-card">
-      <img class="service-icon" src="${service.icon}" alt="" />
-      <h3>${service.name}</h3>
-      <p>${service.description}</p>
-    </article>
-  `).join("");
+const homeGrid = document.querySelector("#home-service-grid");
+if (homeGrid) for (const service of homeServices) {
+  const card = document.createElement("article");
+  card.className = "home-service-card";
+  card.innerHTML = `<img src="assets/icons/home-${service.icon}.svg" alt=""><h3></h3><p></p>`;
+  card.querySelector("h3").textContent = service.title;
+  card.querySelector("p").textContent = service.description;
+  homeGrid.append(card);
 }
-
-function renderDoctors(filter = "all") {
-  const target = document.querySelector("#doctors-grid");
-  if (!target) return;
-
-  const visibleDoctors = doctors.filter((doctor) => {
-    if (filter === "accepting") return doctor.accepting;
-    if (filter === "not-accepting") return !doctor.accepting;
-    return true;
-  });
-
-  if (!visibleDoctors.length) {
-    target.innerHTML = `<p class="empty-state">No physicians match this filter.</p>`;
-    return;
+const doctorGrid = document.querySelector("#doctor-grid");
+if (doctorGrid) for (const doctor of doctors) {
+  const card = document.createElement("article");
+  card.className = "doctor-card";
+  card.innerHTML = `<div class="doctor-photo" aria-hidden="true"></div><div class="doctor-info"><h3></h3><p></p><span class="status-badge ${doctor.accepting ? "accepting" : "not-accepting"}"><span class="status-dot"></span>${doctor.accepting ? "Accepting patients" : "Not accepting"}</span></div>`;
+  card.querySelector("h3").textContent = doctor.name;
+  card.querySelector("p").textContent = doctor.credentials;
+  doctorGrid.append(card);
+}
+const detailGrid = document.querySelector("#detail-grid");
+if (detailGrid) for (const service of serviceDetails) {
+  const card = document.createElement("article");
+  card.className = "detail-card";
+  card.innerHTML = `<div class="detail-heading"><span class="circle-icon"><img src="assets/icons/services-${service.icon}.svg" alt=""></span><h3></h3></div><p></p><ul class="detail-benefits"></ul>`;
+  card.querySelector("h3").textContent = service.title;
+  card.querySelector("p").textContent = service.description;
+  const list = card.querySelector("ul");
+  for (const text of service.benefits) {
+    const li = document.createElement("li");
+    li.textContent = text;
+    list.append(li);
   }
-
-  target.innerHTML = visibleDoctors.map((doctor) => `
-    <article class="doctor-card">
-      <div class="doctor-photo"><img src="${doctor.image}" alt="Portrait of ${doctor.name}" loading="lazy" /></div>
-      <div class="doctor-info"><strong>${doctor.name}</strong><span>${doctor.credentials}</span></div>
-      ${statusBadge(doctor.accepting)}
-    </article>
-  `).join("");
+  detailGrid.append(card);
 }
 
-function populateDoctorSelect() {
-  const select = document.querySelector("#doctor-select");
-  if (!select) return;
-  const defaultDoctor = "Dr. Samuel Babatunde";
-  const doctorOptions = [defaultDoctor, ...doctors.map((doctor) => doctor.name)];
-  select.innerHTML = doctorOptions.map((doctor) => `<option value="${doctor}">${doctor}</option>`).join("");
-  select.value = defaultDoctor;
-}
-
-function setupMobileNavigation() {
-  const menu = document.querySelector("#site-menu");
-  const toggle = document.querySelector(".menu-toggle");
-  if (!menu || !toggle) return;
-
-  toggle.addEventListener("click", () => {
-    const isOpen = menu.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
-    menu.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-  }));
-}
-
-function setupAppointmentForm() {
-  const form = document.querySelector("#appointment-form");
-  const message = document.querySelector("#form-message");
-  if (!form || !message) return;
-
-  // Add the clinic's approved secure Google Apps Script web-app URL here.
-  const FORM_ENDPOINT = "";
-
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    message.className = "form-message";
-    message.textContent = "Submitting your request…";
-
-    const formData = Object.fromEntries(new FormData(form).entries());
-    if (!FORM_ENDPOINT) {
-      message.textContent = "Preview complete. Connect the clinic’s secure form endpoint before launch; no information was sent.";
-      form.reset();
-      populateDoctorSelect();
-      return;
+const panel = document.querySelector("#booking-panel");
+panel.innerHTML = `<dialog id="booking-dialog" aria-labelledby="booking-title">
+  <div class="dialog-frame"><button type="button" class="dialog-close" aria-label="Close appointment form">×</button>
+    <form id="booking-form">
+      <div class="form-intro"><h2 id="booking-title">Book Appointment</h2><p>Scheduling an appointment is easy and convenient. We are committed to providing timely and efficient healthcare services to our patients.</p></div>
+      <div class="form-fields">
+        <label>Your Name<input type="text" name="name" placeholder="E.g. John Doe" autocomplete="name" required></label>
+        <label>Your Email<input type="email" name="email" placeholder="E.g. john@example.com" autocomplete="email" required></label>
+        <label>Your Phone<input type="tel" name="phone" placeholder="E.g. +1 (555) 000-0000" autocomplete="tel" required></label>
+        <label>Your Family Doctor<select name="doctor" required><option>Dr. Samuel Babatunde</option></select></label>
+        <label class="reason-field">Please provide us with the reason of the appointment<textarea name="reason" placeholder="Briefly describe your symptoms or the clinical service you require..." rows="5" required></textarea></label>
+      </div>
+      <div class="form-bottom"><p class="booking-message" id="booking-message" role="status">Online requests are not active yet. Please call the clinic to arrange an appointment; do not enter sensitive health details here.</p><button class="button button-primary" type="submit">Confirm your Appointment</button></div>
+    </form>
+  </div>
+</dialog>`;
+const dialog = document.querySelector("#booking-dialog");
+const menuToggle = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".site-menu");
+menuToggle.addEventListener("click", () => {
+  const open = menuToggle.getAttribute("aria-expanded") !== "true";
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menu.classList.toggle("is-open", open);
+});
+menu.addEventListener("click", event => {
+  if (event.target.closest("a")) {
+    menu.classList.remove("is-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open menu");
+  }
+});
+document.querySelectorAll("[data-booking]").forEach(button => button.addEventListener("click", () => {
+  menu.classList.remove("is-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  dialog.showModal();
+}));
+document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
+dialog.addEventListener("click", event => { if (event.target === dialog) dialog.close(); });
+document.querySelector("#booking-form").addEventListener("submit", event => {
+  event.preventDefault();
+  document.querySelector("#booking-message").innerHTML = 'Online requests are not available. Please call <a href="tel:+13434781009">+1 343-478-1009</a> to book. Your form details were not sent.';
+});
+document.querySelectorAll(".faq-item").forEach(item => item.addEventListener("toggle", () => {
+  if (item.open) document.querySelectorAll(".faq-item").forEach(other => { if (other !== item) other.open = false; });
+}));
+function revealMobileFaq() {
+  if (location.hash === "#faq" && matchMedia("(max-width: 700px)").matches) {
+    const section = document.querySelector("#faq");
+    if (section) {
+      section.classList.add("is-mobile-open");
+      requestAnimationFrame(() => section.scrollIntoView());
     }
-
-    try {
-      await fetch(FORM_ENDPOINT, { method: "POST", mode: "no-cors", body: JSON.stringify(formData) });
-      message.textContent = "Thank you. Your appointment request has been received.";
-      form.reset();
-      populateDoctorSelect();
-    } catch (error) {
-      console.error(error);
-      message.className = "form-message error";
-      message.textContent = "We could not submit your request. Please call the clinic instead.";
-    }
-  });
+  }
 }
-
-function setupFaq() {
-  const items = [...document.querySelectorAll(".faq-item")];
-
-  items.forEach((item) => {
-    const summary = item.querySelector("summary");
-    const indicator = summary?.querySelector("span");
-    if (!summary || !indicator) return;
-
-    indicator.textContent = item.open ? "−" : "+";
-    item.addEventListener("toggle", () => {
-      if (item.open) {
-        items.forEach((otherItem) => {
-          if (otherItem !== item && otherItem.open) otherItem.open = false;
-        });
-      }
-      indicator.textContent = item.open ? "−" : "+";
-    });
-  });
-}
-
-function setupActiveNavigation() {
-  const links = [...document.querySelectorAll(".nav-link")];
-  const sections = links.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
-  if (!("IntersectionObserver" in window)) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (!visible) return;
-    links.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`));
-  }, { rootMargin: "-35% 0px -55% 0px", threshold: [0, .25, .6] });
-
-  sections.forEach((section) => observer.observe(section));
-}
-
-renderServices();
-renderDoctors();
-populateDoctorSelect();
-setupMobileNavigation();
-setupAppointmentForm();
-setupFaq();
-setupActiveNavigation();
+window.addEventListener("hashchange", revealMobileFaq);
+revealMobileFaq();
