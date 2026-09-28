@@ -39,6 +39,7 @@ const navItems = [
   { label: "FAQ", url: "index.html#faq" },
   { label: "Contact", url: "#contact" }
 ];
+if (currentPage === "services") navItems.splice(4, 0, { label: "Reviews", url: "#reviews" });
 const header = document.querySelector("#site-header");
 header.innerHTML = `<header class="site-header"><nav class="container nav-layout" aria-label="Main navigation">
   <a class="brand" href="index.html" aria-label="Astoria Medical Centre home"><img src="assets/astoria-logo.png" alt="Astoria Medical Centre"></a>
@@ -49,7 +50,7 @@ header.innerHTML = `<header class="site-header"><nav class="container nav-layout
 const footer = document.querySelector("#site-footer");
 footer.innerHTML = `<footer class="site-footer" id="contact"><div class="container footer-main">
   <div class="footer-brand"><a href="index.html" aria-label="Astoria Medical Centre home"><img src="assets/astoria-logo.png" alt="Astoria Medical Centre"></a><p>Your trusted primary care and clinical walk-in facility. Dedicated to exceptional patient experiences, accessibility, and modern medical practices.</p></div>
-  <div class="footer-links"><h2>Quick Links</h2><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="index.html#faq">FAQ</a><span>Reviews</span><a href="#contact">Contact</a></div>
+  <div class="footer-links"><h2>Quick Links</h2><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="index.html#faq">FAQ</a><span id="reviews">Reviews</span><a href="#contact">Contact</a></div>
   <div class="footer-contact"><h2>Contact Astoria</h2><a href="mailto:info@astoriamedicalcentre.ca">Support Email: info@astoriamedicalcentre.ca</a><a href="tel:+13434781009">Phone: +1 343-478-1009</a></div>
 </div><div class="container footer-bottom"><small>© Astoria Medical Centre. All rights reserved.</small><div class="social-icons" aria-label="Social media icons"><img src="assets/icons/social-facebook.svg" alt=""><img src="assets/icons/social-twitter.svg" alt=""><img src="assets/icons/social-instagram.svg" alt=""><img src="assets/icons/social-linkedin.svg" alt=""></div></div></footer>`;
 

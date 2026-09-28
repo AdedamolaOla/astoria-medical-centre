@@ -28,6 +28,9 @@ img{display:block;max-width:100%}
 .nav-link:hover,.nav-link.active{color:var(--gold)}
 .nav-link.active{font-weight:700}
 .nav-link.active::after{background:var(--gold)}
+body[data-page="services"] .site-menu{gap:34px}
+body[data-page="services"] .nav-link{color:var(--ink)}
+body[data-page="services"] .nav-link.active{color:var(--gold)}
 .nav-cta{min-height:38px;width:144px;padding:12px 20px;font-size:14px;flex:none}
 .menu-toggle{display:none}
 .home-hero{padding-top:106px;background:#fff;overflow:hidden}
@@ -123,6 +126,7 @@ img{display:block;max-width:100%}
 .circle-icon{display:grid;place-items:center;flex:none;width:48px;height:48px;border-radius:50%;background:#f7f4ef}
 .circle-icon img{display:block}
 .values-section{background:var(--dark);color:#fff;padding:80px 0}
+@media(min-width:701px){.life-section{min-height:800px;display:flex;align-items:center}.values-section{min-height:566px;display:flex;align-items:center}}
 .values-heading{display:flex;justify-content:space-between;align-items:start;gap:48px;margin-bottom:48px}
 .values-heading h2{font-size:42px;line-height:1.16;letter-spacing:-.04em;font-weight:600;max-width:520px}
 .values-heading p{font-size:18px;line-height:1.5;max-width:540px}
@@ -211,6 +215,7 @@ img{display:block;max-width:100%}
   .menu-toggle{display:flex;width:44px;height:44px;flex:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:12px;border:0;border-radius:50%;background:#fcfcfc}
   .menu-toggle span{display:block;width:19px;height:2px;border-radius:3px;background:var(--ink)}
   .site-menu{display:none;position:absolute;top:100%;left:0;right:0;height:auto;background:#fff;box-shadow:0 12px 22px #0001;padding:12px 24px 22px;flex-direction:column;gap:0;margin:0}
+  body[data-page="services"] .site-menu{gap:0}
   .site-menu.is-open{display:flex}
   .nav-link{padding:12px 0;font-size:16px;display:block}
   .nav-link::after{display:none}
