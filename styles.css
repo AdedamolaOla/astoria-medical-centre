@@ -30,9 +30,6 @@ img{display:block;max-width:100%}
 .nav-link:hover,.nav-link.active{color:var(--gold)}
 .nav-link.active{font-weight:700}
 .nav-link.active::after{background:var(--gold)}
-body[data-page="services"] .site-menu{gap:34px}
-body[data-page="services"] .nav-link{color:var(--ink)}
-body[data-page="services"] .nav-link.active{color:var(--gold)}
 .nav-cta{min-height:38px;width:144px;padding:12px 20px;font-size:14px;flex:none}
 .menu-toggle{display:none}
 .home-hero{padding-top:106px;background:#fff;overflow:hidden}
@@ -50,7 +47,7 @@ body[data-page="services"] .nav-link.active{color:var(--gold)}
 .hours-grid{display:grid;grid-template-columns:repeat(2,240px);gap:16px;width:496px}
 .hours-card{display:flex;gap:16px;align-items:center;min-height:80px;padding:16px 20px;background:#fcfcfc;border:1px dashed var(--border);border-radius:16px}
 .hours-card>span:last-child{display:flex;flex-direction:column;gap:2px;white-space:nowrap}
-.day-badge{font-size:12px;font-weight:500;color:#5b5b5b;background:#f4f4f4;padding:8px 12px;border-radius:20px;line-height:1.4}
+.day-badge{flex:none;white-space:nowrap;font-size:12px;font-weight:500;color:#5b5b5b;background:#f4f4f4;padding:8px 12px;border-radius:20px;line-height:1.4}
 .hours-card strong{font-size:14px;line-height:1.4;color:#222;font-weight:600}
 .hours-card small{font-size:14px;line-height:1.5;color:var(--slate)}
 .enrollment{background:var(--dark);color:#fff}
@@ -180,7 +177,7 @@ body[data-page="services"] .nav-link.active{color:var(--gold)}
 .social-icons{display:flex;align-items:center;gap:16px}
 .social-icon{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.12)}
 .social-icons img{width:14px;height:14px}
-#booking-dialog{border:0;padding:0;max-height:calc(100dvh - 32px);width:min(458px,calc(100vw - 24px));max-width:none;margin:auto 0 auto auto;box-shadow:-20px 0 70px rgba(0,0,0,.15)}
+#booking-dialog{position:fixed;inset:0 0 0 auto;border:0;padding:0;width:min(458px,100vw);max-width:none;height:100dvh;max-height:100dvh;margin:0;overflow-y:auto;overscroll-behavior:contain;box-shadow:-20px 0 70px rgba(0,0,0,.15)}
 #booking-dialog::backdrop{background:rgba(24,20,16,.55)}
 #booking-dialog[open]{animation:drawer-enter .48s cubic-bezier(.22,1,.36,1) both}
 #booking-dialog[open].is-closing{animation:drawer-exit .26s ease-in both}
@@ -197,9 +194,9 @@ body[data-page="services"] .nav-link.active{color:var(--gold)}
 .inner-hero-picture{animation-delay:.3s}
 .reveal-on-scroll{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1);transition-delay:var(--reveal-delay,0ms)}
 .reveal-on-scroll.is-visible{opacity:1;transform:translateY(0)}
-.dialog-frame{min-height:min(937px,calc(100dvh - 32px));padding:40px;background:#fff;position:relative}
+.dialog-frame{min-height:100dvh;padding:40px;background:#fff;position:relative}
 .dialog-close{position:absolute;right:18px;top:12px;background:none;border:0;font-size:30px;line-height:1;color:#6e665e}
-#booking-form{min-height:calc(min(937px,100dvh - 32px) - 80px);display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+#booking-form{min-height:calc(100dvh - 80px);display:flex;flex-direction:column;justify-content:space-between;gap:32px}
 .form-intro{display:flex;flex-direction:column;gap:16px;margin-bottom:28px}
 .form-intro h2{font-size:28px;letter-spacing:-.05em;line-height:1.2;color:var(--gold);font-weight:600}
 .form-intro p{font-size:14px;line-height:1.5}
@@ -225,21 +222,20 @@ body[data-page="services"] .nav-link.active{color:var(--gold)}
   .hours-grid{grid-template-columns:repeat(2,minmax(0,1fr));width:48%}.hours-card{padding:12px;gap:8px}.hours-card strong,.hours-card small{font-size:12px}
   .footer-main{gap:36px;grid-template-columns:2fr 1fr 1fr}
 }
+@media(max-width:900px) and (min-width:701px){
+  .hours-layout{flex-direction:column;align-items:stretch}
+  .hours-grid{width:100%}
+}
 @media(max-width:700px){
   section[id],footer[id]{scroll-margin-top:96px}
-  body[data-page="services"] section[id],body[data-page="services"] footer[id]{scroll-margin-top:84px}
   .container{width:calc(100% - 48px)}
   .site-header{height:96px}
-  body[data-page="services"] .site-header{height:84px}
   .nav-layout{width:calc(100% - 32px)}
   .brand,.brand img{width:100px}.brand img{height:64px}
   .nav-cta{display:none}
-  .menu-toggle{display:flex;width:44px;height:44px;flex:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:12px;border:0;border-radius:50%;background:#fcfcfc}
-  .menu-toggle span{display:block;width:19px;height:2px;border-radius:3px;background:var(--ink)}
-  body[data-page="home"] .menu-toggle,body[data-page="about"] .menu-toggle{width:43px;height:32px;padding:0;background:transparent;border-radius:0}
-  body[data-page="home"] .menu-toggle span,body[data-page="about"] .menu-toggle span{width:29px;height:3.5px}
+  .menu-toggle{display:flex;width:43px;height:32px;flex:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0;border:0;background:transparent}
+  .menu-toggle span{display:block;width:29px;height:3.5px;border-radius:3px;background:var(--ink)}
   .site-menu{display:none;position:absolute;top:100%;left:0;right:0;height:auto;background:#fff;box-shadow:0 12px 22px #0001;padding:12px 24px 22px;flex-direction:column;gap:0;margin:0}
-  body[data-page="services"] .site-menu{gap:0}
   .site-menu.is-open{display:flex;animation:menu-enter .28s cubic-bezier(.22,1,.36,1) both}
   .nav-link{padding:12px 0;font-size:16px;display:block}
   .nav-link::after{display:none}
