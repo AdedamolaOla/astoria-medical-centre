@@ -86,10 +86,12 @@ body[data-page="services"] .nav-link.active{color:var(--gold)}
 .faq-section{padding:80px 0}
 .faq-layout{display:grid;grid-template-columns:409px minmax(0,702px);justify-content:space-between;gap:48px}
 .faq-list{display:flex;flex-direction:column;gap:16px}
+.faq-layout .section-heading h2{font-size:36px;font-weight:700;letter-spacing:0}
+.faq-layout .section-heading p{font-size:16px;max-width:203px}
 .faq-item{background:#fcfcfc;border-radius:16px;overflow:hidden}
-.faq-item summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;list-style:none;cursor:pointer;font-size:14px;font-weight:600}
+.faq-item summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 20px;list-style:none;cursor:pointer;font-size:14px;font-weight:600}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary span{font-size:18px;line-height:1;font-weight:700}
+.faq-item summary span{font-size:18px;line-height:1.4;font-weight:700}
 .faq-item summary span::before{content:"+"}
 .faq-item[open] summary span::before{content:"−"}
 .faq-item[open]{padding:20px}
@@ -174,6 +176,7 @@ body[data-page="services"] .nav-link.active{color:var(--gold)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:40px}
 .footer-bottom small{font-size:12px}
 .social-icons{display:flex;align-items:center;gap:16px}
+.social-icon{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.12)}
 .social-icons img{width:14px;height:14px}
 #booking-dialog{border:0;padding:0;max-height:calc(100dvh - 32px);width:min(458px,calc(100vw - 24px));max-width:none;margin:auto 0 auto auto;box-shadow:-20px 0 70px rgba(0,0,0,.15)}
 #booking-dialog::backdrop{background:rgba(24,20,16,.55)}
@@ -214,6 +217,8 @@ body[data-page="services"] .nav-link.active{color:var(--gold)}
   .nav-cta{display:none}
   .menu-toggle{display:flex;width:44px;height:44px;flex:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:12px;border:0;border-radius:50%;background:#fcfcfc}
   .menu-toggle span{display:block;width:19px;height:2px;border-radius:3px;background:var(--ink)}
+  body[data-page="home"] .menu-toggle,body[data-page="about"] .menu-toggle{width:43px;height:32px;padding:0;background:transparent;border-radius:0}
+  body[data-page="home"] .menu-toggle span,body[data-page="about"] .menu-toggle span{width:29px;height:3.5px}
   .site-menu{display:none;position:absolute;top:100%;left:0;right:0;height:auto;background:#fff;box-shadow:0 12px 22px #0001;padding:12px 24px 22px;flex-direction:column;gap:0;margin:0}
   body[data-page="services"] .site-menu{gap:0}
   .site-menu.is-open{display:flex}
@@ -322,7 +327,7 @@ body[data-page="services"] .nav-link.active{color:var(--gold)}
   .detail-card>p{font-size:12px;line-height:1.55}
   .detail-benefits li{font-size:14px}
   .site-footer{min-height:603px}
-  .footer-main{width:calc(100% - 32px);display:grid;grid-template-columns:1fr 1fr;gap:32px 20px;padding-top:40px;padding-bottom:32px}
+  .footer-main{width:calc(100% - 32px);display:grid;grid-template-columns:minmax(0,100px) minmax(0,1fr);gap:32px 22px;padding-top:40px;padding-bottom:32px}
   .footer-brand{grid-column:1/-1}
   .footer-brand img{width:100px;height:64px}
   .footer-brand p{font-size:12px;margin-top:20px;max-width:342px}
