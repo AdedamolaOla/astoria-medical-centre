@@ -123,10 +123,24 @@ menu.addEventListener("click", event => {
 document.querySelectorAll("[data-booking]").forEach(button => button.addEventListener("click", () => {
   menu.classList.remove("is-open");
   menuToggle.setAttribute("aria-expanded", "false");
-  dialog.showModal();
+  if (!dialog.open) dialog.showModal();
 }));
-document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
-dialog.addEventListener("click", event => { if (event.target === dialog) dialog.close(); });
+function closeBooking() {
+  if (!dialog.open || dialog.classList.contains("is-closing")) return;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    dialog.close();
+    return;
+  }
+  dialog.classList.add("is-closing");
+  window.setTimeout(() => {
+    if (dialog.open) dialog.close();
+    dialog.classList.remove("is-closing");
+  }, 260);
+}
+document.querySelector(".dialog-close").addEventListener("click", closeBooking);
+dialog.addEventListener("click", event => { if (event.target === dialog) closeBooking(); });
+dialog.addEventListener("cancel", event => { event.preventDefault(); closeBooking(); });
+dialog.addEventListener("close", () => dialog.classList.remove("is-closing"));
 document.querySelector("#booking-form").addEventListener("submit", event => {
   event.preventDefault();
   document.querySelector("#booking-message").innerHTML = 'Online requests are not available. Please call <a href="tel:+13434781009">+1 343-478-1009</a> to book. Your form details were not sent.';
@@ -145,3 +159,30 @@ function revealMobileFaq() {
 }
 window.addEventListener("hashchange", revealMobileFaq);
 revealMobileFaq();
+
+// Reveal each section once it enters view. Content stays visible without motion support.
+if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const revealTargets = document.querySelectorAll([
+    ".hours-intro", ".hours-grid", ".enrollment-image", ".enrollment-copy",
+    ".home-services .section-heading", ".home-service-card",
+    ".physicians .section-heading", ".doctor-card", ".faq-layout > *",
+    ".story-layout > *", ".life-heading > *", ".life-layout > *",
+    ".values-heading > *", ".value-card", ".community-layout > *",
+    ".callout-layout > *", ".service-intro", ".detail-card", ".footer-main > *"
+  ].join(","));
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    }
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0 });
+  revealTargets.forEach((element, index) => {
+    // Small offsets make adjacent cards arrive in sequence without holding up a row.
+    if (element.matches(".home-service-card,.doctor-card,.value-card,.detail-card")) {
+      element.style.setProperty("--reveal-delay", `${(index % 3) * 65}ms`);
+    }
+    element.classList.add("reveal-on-scroll");
+    observer.observe(element);
+  });
+}
