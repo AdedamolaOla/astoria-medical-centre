@@ -22,8 +22,12 @@ img{display:block;max-width:100%}
 #site-header{position:sticky;top:0;z-index:100}
 .site-header{height:96px;border-bottom:1px solid #e2e8f0;background:#fff;position:relative;z-index:10}
 .nav-layout{height:100%;display:flex;align-items:center;justify-content:space-between}
-.brand{width:127px;flex:none}
-.brand img{width:127px;height:81px;object-fit:contain}
+.brand{width:201px;flex:none}
+.brand-logo{display:flex;align-items:center;gap:8px}
+.brand-logo picture{display:block;flex:none}
+.brand-logo picture:first-child{width:48px}
+.brand-logo picture:last-child{width:145px}
+.brand-logo img{width:100%;height:auto}
 .site-menu{height:100%;display:flex;align-items:stretch;justify-content:center;gap:60px;margin-left:auto;margin-right:auto}
 .nav-link{display:flex;align-items:flex-start;justify-content:space-between;flex-direction:column;padding-top:40px;white-space:nowrap;font-size:14px;font-weight:500;line-height:1.4;color:#475569}
 .nav-link::after{content:"";display:block;width:100%;height:2px;background:transparent;border-radius:2px}
@@ -167,7 +171,9 @@ img{display:block;max-width:100%}
 .detail-benefits li::before{content:"";display:block;width:22px;height:22px;flex:none;border-radius:50%;background:#f7f3ec url('assets/icons/services-check.svg') center / 12px 12px no-repeat}
 .site-footer{min-height:486px;color:#fff;background:radial-gradient(ellipse at 48% 66%,#9a702d 0%,#795623 42%,#352b1d 95%)}
 .footer-main{display:grid;grid-template-columns:370px 1fr 1fr;gap:100px;padding-top:80px;padding-bottom:64px}
-.footer-brand img{width:127px;height:81px;object-fit:contain}
+.footer-logo{display:flex;align-items:center;gap:8px;width:max-content}
+.footer-logo img:first-child{width:48px;height:48px}
+.footer-logo img:last-child{width:145px;height:31px}
 .footer-brand p{font-size:14px;line-height:1.5;max-width:370px;margin-top:24px;color:#f4eee7}
 .footer-links,.footer-contact{display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5}
 .footer-links h2,.footer-contact h2{font-size:16px;font-weight:700;margin-bottom:6px}
@@ -222,7 +228,14 @@ img{display:block;max-width:100%}
   .hours-grid{grid-template-columns:repeat(2,minmax(0,1fr));width:48%}.hours-card{padding:12px;gap:8px}.hours-card strong,.hours-card small{font-size:12px}
   .footer-main{gap:36px;grid-template-columns:2fr 1fr 1fr}
 }
+@media(max-width:900px){
+  .brand{width:154px}
+  .brand-logo{gap:6px}
+  .brand-logo picture:first-child{width:37px}
+  .brand-logo picture:last-child{width:111px}
+}
 @media(max-width:900px) and (min-width:701px){
+  .site-menu{gap:16px}
   .hours-layout{flex-direction:column;align-items:stretch}
   .hours-grid{width:100%}
 }
@@ -231,7 +244,6 @@ img{display:block;max-width:100%}
   .container{width:calc(100% - 48px)}
   .site-header{height:96px}
   .nav-layout{width:calc(100% - 32px)}
-  .brand,.brand img{width:100px}.brand img{height:64px}
   .nav-cta{display:none}
   .menu-toggle{display:flex;width:43px;height:32px;flex:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0;border:0;background:transparent}
   .menu-toggle span{display:block;width:29px;height:3.5px;border-radius:3px;background:var(--ink)}
@@ -342,7 +354,6 @@ img{display:block;max-width:100%}
   .site-footer{min-height:603px}
   .footer-main{width:calc(100% - 32px);display:grid;grid-template-columns:minmax(0,100px) minmax(0,1fr);gap:32px 22px;padding-top:40px;padding-bottom:32px}
   .footer-brand{grid-column:1/-1}
-  .footer-brand img{width:100px;height:64px}
   .footer-brand p{font-size:12px;margin-top:20px;max-width:342px}
   .footer-links,.footer-contact{font-size:12px;gap:8px;overflow-wrap:anywhere}
   .footer-links h2,.footer-contact h2{font-size:14px}

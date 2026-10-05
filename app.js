@@ -41,14 +41,14 @@ const navItems = [
 ];
 const header = document.querySelector("#site-header");
 header.innerHTML = `<header class="site-header"><nav class="container nav-layout" aria-label="Main navigation">
-  <a class="brand" href="index.html" aria-label="Astoria Medical Centre home"><img src="assets/astoria-logo.png" alt="Astoria Medical Centre"></a>
+  <a class="brand" href="index.html" aria-label="Astoria Medical Centre home"><span class="brand-logo" aria-hidden="true"><picture><source media="(max-width: 900px)" srcset="assets/astoria-logo-icon-mobile.svg"><img src="assets/astoria-logo-icon.svg" alt=""></picture><picture><source media="(max-width: 900px)" srcset="assets/astoria-logo-wordmark-mobile.svg"><img src="assets/astoria-logo-wordmark.svg" alt=""></picture></span></a>
   <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
   <div class="site-menu" id="site-menu">${navItems.map(item => `<a href="${item.url}" class="nav-link${item.page === currentPage ? " active" : ""}"${item.page === currentPage ? ' aria-current="page"' : ""}>${item.label}</a>`).join("")}</div>
   <button class="button button-primary nav-cta" type="button" data-booking>Register Patient</button>
 </nav></header>`;
 const footer = document.querySelector("#site-footer");
 footer.innerHTML = `<footer class="site-footer" id="contact"><div class="container footer-main">
-  <div class="footer-brand"><a href="index.html" aria-label="Astoria Medical Centre home"><img src="assets/astoria-logo.png" alt="Astoria Medical Centre"></a><p>Your trusted primary care and clinical walk-in facility. Dedicated to exceptional patient experiences, accessibility, and modern medical practices.</p></div>
+  <div class="footer-brand"><a class="footer-logo" href="index.html" aria-label="Astoria Medical Centre home"><img src="assets/astoria-logo-icon-white.svg" alt=""><img src="assets/astoria-logo-wordmark-white.svg" alt=""></a><p>Your trusted primary care and clinical walk-in facility. Dedicated to exceptional patient experiences, accessibility, and modern medical practices.</p></div>
   <div class="footer-links"><h2>Quick Links</h2><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="index.html#faq">FAQ</a><a href="#contact">Contact</a></div>
   <div class="footer-contact"><h2>Contact Astoria</h2><a href="mailto:info@astoriamedicalcentre.ca">Support Email: info@astoriamedicalcentre.ca</a><a href="tel:+13434781009">Phone: +1 343-478-1009</a></div>
 </div><div class="container footer-bottom"><small>© Astoria Medical Centre. All rights reserved.</small><div class="social-icons" aria-label="Social media icons"><span class="social-icon"><img src="assets/icons/social-facebook.svg" alt=""></span><span class="social-icon"><img src="assets/icons/social-twitter.svg" alt=""></span><span class="social-icon"><img src="assets/icons/social-instagram.svg" alt=""></span><span class="social-icon"><img src="assets/icons/social-linkedin.svg" alt=""></span></div></div></footer>`;
