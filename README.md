@@ -1,10 +1,10 @@
 # Astoria Medical Centre website
 
-Static HTML, CSS and JavaScript version of the Figma Home, About Us, Services and appointment panel designs. GitHub Pages serves the site directly; no build step or paid site builder is required.
+Static HTML, CSS and JavaScript version of the Figma Home, About Us, Our Team, Services and appointment panel designs. GitHub Pages serves the site directly; no build step or paid site builder is required.
 
 ## Preview locally
 
-Run `python3 -m http.server 8765` in the project folder and open `http://localhost:8765/`. The routes are `index.html`, `about.html`, and `services.html`.
+Run `python3 -m http.server 8765` in the project folder and open `http://localhost:8765/`. The routes are `index.html`, `about.html`, `team.html`, and `services.html`.
 
 ## Doctor profiles
 

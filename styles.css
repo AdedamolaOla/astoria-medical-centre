@@ -28,7 +28,7 @@ img{display:block;max-width:100%}
 .brand-logo picture:first-child{width:48px}
 .brand-logo picture:last-child{width:145px}
 .brand-logo img{width:100%;height:auto}
-.site-menu{height:100%;display:flex;align-items:stretch;justify-content:center;gap:60px;margin-left:auto;margin-right:auto}
+.site-menu{height:100%;display:flex;align-items:stretch;justify-content:center;gap:50px;margin-left:auto;margin-right:auto}
 .nav-link{display:flex;align-items:flex-start;justify-content:space-between;flex-direction:column;padding-top:40px;white-space:nowrap;font-size:14px;font-weight:500;line-height:1.4;color:#475569}
 .nav-link::after{content:"";display:block;width:100%;height:2px;background:transparent;border-radius:2px}
 .nav-link:hover,.nav-link.active{color:var(--gold)}
@@ -41,6 +41,7 @@ img{display:block;max-width:100%}
 .home-hero h1{font-size:64px;line-height:1.2;font-weight:600;letter-spacing:-.05em;color:var(--gold);white-space:nowrap}
 .home-hero-aside{width:492px;flex:none;display:flex;flex-direction:column;gap:24px;padding-top:3px}
 .home-hero-aside p{font-size:16px;line-height:1.5;color:var(--ink)}
+.mobile-home-intro{display:none}
 .hero-picture-home{max-width:1265px;margin-top:84px;overflow:hidden}
 .hero-picture-home img{width:100%;height:auto}
 .home-hours{padding:82px 0}
@@ -76,6 +77,12 @@ img{display:block;max-width:100%}
 .home-service-card h3{font-size:16px;line-height:1.5;font-weight:400}
 .home-service-card p{font-size:14px;line-height:1.5;color:var(--slate)}
 .physicians{padding:80px 0;background:#fcfcfc}
+.team-hero{display:flex;align-items:center;justify-content:center;padding:112px 24px;text-align:center}
+.team-hero-copy{display:flex;flex-direction:column;gap:18px;max-width:499px}
+.team-hero h1{font-size:58px;line-height:1.08;letter-spacing:-.04em;font-weight:600;color:var(--gold)}
+.team-hero p{font-size:18px;line-height:1.55;color:var(--muted)}
+.team-physicians .section-heading{display:none}
+.team-physicians .doctor-grid{margin-top:0}
 .doctor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:32px}
 .doctor-card{display:flex;flex-direction:column;gap:12px;min-width:0;padding:20px;background:#fff;border:1px solid #f7f7f7;border-radius:32px}
 .doctor-photo{width:100%;height:334px;flex:none;background:#f6f6f6;border-radius:16px}
@@ -239,6 +246,16 @@ img{display:block;max-width:100%}
   .hours-layout{flex-direction:column;align-items:stretch}
   .hours-grid{width:100%}
 }
+@media(max-width:800px) and (min-width:701px){
+  .nav-layout{width:calc(100% - 32px)}
+  .nav-cta{display:none}
+  .menu-toggle{display:flex;width:43px;height:32px;flex:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0;border:0;background:transparent}
+  .menu-toggle span{display:block;width:29px;height:3.5px;border-radius:3px;background:var(--ink)}
+  .site-menu{display:none;position:absolute;top:100%;left:0;right:0;height:auto;background:#fff;box-shadow:0 12px 22px #0001;padding:12px 24px 22px;flex-direction:column;gap:0;margin:0}
+  .site-menu.is-open{display:flex;animation:menu-enter .28s cubic-bezier(.22,1,.36,1) both}
+  .nav-link{padding:12px 0;font-size:16px;display:block}
+  .nav-link::after{display:none}
+}
 @media(max-width:700px){
   section[id],footer[id]{scroll-margin-top:96px}
   .container{width:calc(100% - 48px)}
@@ -259,6 +276,8 @@ img{display:block;max-width:100%}
   .home-hero h1{font-size:32px;line-height:1.2;letter-spacing:-.03em;font-weight:700;white-space:normal}
   .home-hero-aside{width:100%;gap:24px;padding:0}
   .home-hero-aside p{font-size:14px;line-height:1.5}
+  .desktop-home-intro{display:none}
+  .mobile-home-intro{display:block}
   .home-hero .button-row .button:first-child{height:54px}
   .home-hero .button-row .button:last-child{height:57px}
   .hero-picture-home{margin-top:32px;max-width:none}
@@ -290,6 +309,12 @@ img{display:block;max-width:100%}
   .home-service-card{min-height:0;padding:24px}
   .home-service-card img{width:48px;height:48px}
   .physicians{padding:52px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+  .team-hero{display:block;padding:52px 24px 64px}
+  .team-hero-copy{max-width:none;gap:14px}
+  .team-hero h1{font-size:32px;line-height:1.4;letter-spacing:-.04em}
+  .team-hero p{font-size:14px;line-height:1.55}
+  .team-physicians .section-heading{display:flex}
+  .team-physicians .doctor-grid{margin-top:24px}
   .doctor-grid{grid-template-columns:1fr;gap:20px;margin-top:24px}
   .doctor-card{border-color:#e2e8f0}
   .doctor-photo{height:334px}
