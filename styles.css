@@ -478,15 +478,9 @@ img{display:block;max-width:100%}
 .doctor-selection-header{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .doctor-selection-header strong{font-size:14px;color:var(--gold)}
 .doctor-clinic-tag{background:#e0f2fe;color:#1e3a8a;border-radius:100px;padding:6px 14px;font-size:12px;white-space:nowrap}
-.booking-doctor-roster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;min-width:0;gap:12px;overflow:visible;padding:0}
-.booking-doctor{min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:10px;border:2px solid #e2e8f0;border-radius:24px;background:#fff;text-align:left}
-.booking-doctor[hidden]{display:none}
-.doctor-carousel-controls{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px}
-.doctor-carousel-controls[hidden]{display:none}
-.doctor-carousel-controls button{min-height:44px;padding:8px 14px;border:1px solid #e2e8f0;border-radius:100px;background:#fff;color:var(--ink);font-size:14px}
-.doctor-carousel-controls button:hover:not(:disabled){border-color:var(--gold)}
-.doctor-carousel-controls button:disabled{opacity:.45;cursor:default}
-.doctor-page-status{font-size:14px;color:var(--slate)}
+.booking-doctor-roster{display:flex;width:calc(100% + 80px);min-width:0;gap:12px;margin-inline:-40px;overflow-x:auto;padding:8px 40px 12px;scroll-padding-inline:40px;scroll-snap-type:x proximity;overscroll-behavior-inline:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.booking-doctor-roster::-webkit-scrollbar{display:none}
+.booking-doctor{flex:0 0 220px;width:220px;max-width:220px;min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:10px;border:2px solid #e2e8f0;border-radius:24px;background:#fff;text-align:left;scroll-snap-align:start}
 .booking-doctor:hover,.booking-doctor[aria-pressed="true"]{border-color:var(--gold)}
 .booking-doctor-photo{height:160px;width:100%;border-radius:16px;background:#f6f6f6}
 .booking-doctor-name{font-size:16px;line-height:1.4;font-weight:700;color:#533400}
@@ -567,7 +561,8 @@ img{display:block;max-width:100%}
   .clinic-option-info{padding:10px}
   .clinic-option strong{font-size:12px}
   .clinic-option small{font-size:10px}
-  .booking-doctor-roster{grid-template-columns:minmax(0,1fr)}
+  .booking-doctor-roster{width:calc(100% + 32px);margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px}
+  .booking-doctor{flex-basis:min(220px,calc(100vw - 32px));width:min(220px,calc(100vw - 32px));max-width:220px}
   .form-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   .form-fields label{min-width:0}
   .form-fields input{padding:10px;font-size:11px}
