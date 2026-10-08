@@ -117,7 +117,10 @@ let selectedClinic = null;
 let selectedDoctor = null;
 function selectDoctor(index) {
   selectedDoctor = index;
-  doctorRoster.querySelectorAll(".booking-doctor").forEach((card, i) => card.setAttribute("aria-pressed", String(i === index)));
+  doctorRoster.querySelectorAll(".booking-doctor").forEach((card, i) => {
+    card.setAttribute("aria-pressed", String(i === index));
+    if (i === index) card.scrollIntoView({ block: "nearest", inline: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  });
 }
 function selectClinic(clinic) {
   selectedClinic = clinic;
@@ -139,6 +142,7 @@ function selectClinic(clinic) {
     card.addEventListener("click", () => selectDoctor(index));
     doctorRoster.append(card);
   });
+  doctorRoster.scrollLeft = 0;
 }
 clinicOptions.forEach(option => option.addEventListener("click", () => selectClinic(option.dataset.clinic)));
 const menuToggle = document.querySelector(".menu-toggle");
