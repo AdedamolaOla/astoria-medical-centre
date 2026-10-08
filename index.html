@@ -7,39 +7,50 @@
   <link rel="icon" type="image/svg+xml" href="assets/astoria-logo-icon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261007team"><script src="app.js?v=20261007team" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261008home"><script src="app.js?v=20261008home" defer></script>
 </head>
 <body data-page="home">
   <a class="skip-link" href="#main-content">Skip to content</a><div id="site-header"></div>
   <main id="main-content">
-    <section class="home-hero" id="home">
-      <div class="container home-hero-copy">
-        <h1>Welcome to Astoria<br>Medical Centre</h1>
-        <div class="home-hero-aside"><p class="desktop-home-intro">Our dedicated team of family physicians is committed to providing exceptional medical care to you and your loved ones.</p><p class="mobile-home-intro">We are now accepting new patients! Register online today. Our dedicated team of family physicians is committed to providing exceptional medical care to individuals and families.</p><div class="button-row"><button class="button button-primary" type="button" data-booking>Register Patient</button><button class="button button-outline" type="button" data-booking>Book Appointment</button></div></div>
+    <section class="home-hero" id="home"><div class="container home-hero-layout">
+      <div class="home-hero-copy">
+        <h1>A family doctor who knows you. A team that responds.</h1>
+        <div class="home-hero-aside"><p>Our dedicated team of family physicians is committed to providing exceptional medical care to you and your loved ones.</p><div class="button-row"><button class="button button-primary" type="button" data-booking data-booking-mode="new">Register Patient</button><button class="button button-outline" type="button" data-booking>Book Appointment</button></div></div>
       </div>
-      <div class="container hero-picture hero-picture-home"><img src="assets/hero-home.webp" alt="A family with their newborn and a clinician in a hospital room"></div>
-    </section>
-    <section class="home-hours" id="hours"><div class="container hours-layout">
-      <div class="hours-intro"><h2>Plan your visit with confidence</h2><p>Our walk-in and appointment windows are designed to support urgent and routine care across the week.</p><button class="button button-primary" type="button" data-booking>Book Appointment</button></div>
-      <div class="hours-grid" aria-label="Working hours">
-        <div class="hours-card"><span class="day-badge">M-F</span><span><strong>Monday-Friday</strong><small>08:00AM - 08:00PM</small></span></div>
-        <div class="hours-card"><span class="day-badge">M-F</span><span><strong>Walk-in (Mon-Fri)</strong><small>08:00AM - 05:00PM</small></span></div>
-        <div class="hours-card"><span class="day-badge">SAT</span><span><strong>Walk-in (Saturday)</strong><small>09:00AM - 03:00PM</small></span></div>
-        <div class="hours-card"><span class="day-badge">SUN</span><span><strong>Walk-in (Sunday)</strong><small>No Available</small></span></div>
+      <picture class="hero-reception"><source media="(max-width: 700px)" srcset="assets/hero-reception-mobile.webp"><img src="assets/hero-reception-desktop.webp" alt="Astoria Medical Centre reception with a staff member ready to welcome patients"></picture>
+    </div></section>
+    <section class="home-hours" id="hours"><div class="container">
+      <div class="hours-intro"><h2>Plan your visit with confidence</h2><p>Our walk-in and appointment windows are designed to support urgent and routine care across the week. Choose the path that fits you.</p></div>
+      <div class="visit-cards">
+        <article class="visit-card visit-card-new"><div class="visit-card-intro"><div class="visit-card-title"><span class="visit-icon"><img src="assets/icons/home-user-plus.svg" alt=""></span><h3><span class="desktop-title">I am new to Astoria</span><span class="mobile-title">New Patient</span></h3></div><p>First time visiting? We make it easy to get started. Book an appointment online or walk in during our open hours.</p></div>
+          <div class="visit-times" aria-label="New patient appointment and walk-in hours">
+            <div class="hours-card"><span class="day-badge">M-F</span><span><strong>Book an appointment</strong><small>Mon–Fri · 8am – 8pm</small></span></div>
+            <div class="hours-card"><span class="day-badge">M-F</span><span><strong>Walk in during weekdays</strong><small>Mon–Fri 8am – 5pm</small></span></div>
+            <div class="hours-card"><span class="day-badge">SAT</span><span><strong>Walk in weekends</strong><small>Sat 9am – 3pm</small></span></div>
+            <div class="hours-card"><span class="day-badge">SUN</span><span><strong>Walk-in (Sunday)</strong><small>No Available</small></span></div>
+          </div><button class="button button-primary" type="button" data-booking data-booking-mode="new">Book as New Patient</button>
+        </article>
+        <article class="visit-card visit-card-existing"><div class="visit-card-intro"><div class="visit-card-title"><span class="visit-icon"><img src="assets/icons/home-user-check.svg" alt=""></span><h3><span class="desktop-title">I am already an Astoria patient</span><span class="mobile-title">Existing Patient</span></h3></div><p>Already with us? Book your next appointment or visit during our walk-in hours.</p></div>
+          <div class="visit-times" aria-label="Existing patient appointment and walk-in hours">
+            <div class="hours-card"><span class="day-badge">M-F</span><span><strong>Book an appointment</strong><small>Mon–Fri · 8am – 8pm</small></span></div>
+            <div class="hours-card"><span class="day-badge">M-F</span><span><strong>Walk in during weekdays</strong><small>Mon–Fri 8am – 5pm</small></span></div>
+            <div class="hours-card"><span class="day-badge">SAT</span><span><strong>Walk in weekends</strong><small>Sat 9am – 3pm</small></span></div>
+            <div class="hours-card"><span class="day-badge">SUN</span><span><strong>Walk-in (Sunday)</strong><small>No Available</small></span></div>
+          </div><button class="button button-primary" type="button" data-booking>Book Appointment</button>
+        </article>
       </div>
     </div></section>
     <section class="enrollment" id="new-patients"><div class="container enrollment-layout">
       <img class="enrollment-image" src="assets/clinic-team.jpg" alt="People speaking with the care team at a clinic reception">
-      <div class="enrollment-copy"><div><h2>New Patient Enrollment</h2><p>Starting with a new medical center should be effortless. We have simplified our enrollment pathway so you and your dependents can access premium healthcare promptly.</p></div>
-        <ol class="steps"><li>Complete the secure online<br class="desktop-break"> registration form</li><li>Transfer previous medical<br class="desktop-break"> records automatically</li><li>Schedule your introductory<br class="desktop-break"> health screening visit</li></ol>
+      <div class="enrollment-copy"><div><h2>Your 5-step getting<br class="desktop-break"> started process</h2><p>We've simplified the journey to your first visit. Follow these steps to secure your spot with our team and begin your premium healthcare journey.</p></div>
+        <ol class="steps"><li>Click on the book appointment link to start your journey.</li><li>Select your preferred Astoria Medical Centre location.</li><li>Choose a doctor that best fits your medical needs.</li><li>Complete your secure online registration form.</li><li>Book your meet and greet appointment.</li></ol>
         <button class="button button-primary" type="button" data-booking>Book Appointment</button>
       </div>
     </div></section>
-    <section class="home-services" id="services"><div class="container"><div class="section-heading"><h2>Our Services</h2><p>We provide assistance in various spheres</p></div><div class="home-service-grid" id="home-service-grid"></div></div></section>
     <section class="faq-section" id="faq"><div class="container faq-layout">
       <div class="section-heading"><h2>Frequently Asked<br>Questions</h2><p>Answers to the questions<br>patients ask most often.</p></div>
       <div class="faq-list">
-        <details class="faq-item" name="astoria-faq" open><summary>How Can I Schedule an Appointment?<span aria-hidden="true"></span></summary><p>Call during office hours or use our online booking system on the website.</p></details>
+        <details class="faq-item" name="astoria-faq" open><summary>How Can I Schedule an Appointment?<span aria-hidden="true"></span></summary><p>Please call the clinic during office hours to arrange an appointment. Online requests are not active yet.</p></details>
         <details class="faq-item" name="astoria-faq"><summary>What Should I Bring to My Appointment?<span aria-hidden="true"></span></summary><p>Please bring your health card, photo identification, a list of your current medications, and any relevant medical records or referral documents.</p></details>
         <details class="faq-item" name="astoria-faq"><summary>How do I cancel or reschedule an appointment?<span aria-hidden="true"></span></summary><p>Contact the clinic as soon as possible during office hours. Our team will help you cancel or find another suitable appointment time.</p></details>
         <details class="faq-item" name="astoria-faq"><summary>What should I do in case of a medical emergency?<span aria-hidden="true"></span></summary><p>Call 911 or go to the nearest emergency department immediately. Do not use the online appointment form for urgent or life-threatening situations.</p></details>

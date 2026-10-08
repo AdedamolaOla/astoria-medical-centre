@@ -403,3 +403,160 @@ img{display:block;max-width:100%}
   .button,.button:hover{transition:none;transform:none}
 }
 @media print{.reveal-on-scroll{opacity:1;transform:none}}
+
+/* Updated Home layout */
+.home-hero{padding:0;overflow:hidden}
+.home-hero-layout{display:grid;grid-template-columns:minmax(0,586px) minmax(0,598px);align-items:center;justify-content:space-between;gap:96px;min-height:620px}
+.home-hero-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;min-height:0}
+.home-hero h1{font-size:48px;line-height:1.2;letter-spacing:-.05em;font-weight:600;white-space:normal;max-width:586px}
+.home-hero-aside{width:492px;max-width:100%;padding:0;gap:24px}
+.home-hero-aside p{font-size:16px;line-height:1.5;color:var(--ink)}
+.home-hero .button-row .button{width:180px}
+.hero-reception{display:block;position:relative;width:598px;height:466px;max-width:100%}
+.hero-reception img{position:absolute;left:-16px;top:0;width:639px;max-width:none;height:468px;object-fit:contain}
+.home-hours{background:#fffdf9;padding:72px 0}
+.home-hours .hours-intro{align-items:center;text-align:center;gap:12px;max-width:560px;margin:0 auto 48px;display:flex}
+.home-hours .hours-intro h2{font-size:42px;line-height:1.2;letter-spacing:-.05em;font-weight:600;white-space:nowrap;margin:0}
+.home-hours .hours-intro p{font-size:16px;line-height:1.5;max-width:560px}
+.visit-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.visit-card{display:flex;flex-direction:column;gap:24px;min-height:420px;padding:32px;border-radius:20px;background:#fff;min-width:0}
+.visit-card-existing{background:#f7f3ed}
+.visit-card-intro{display:flex;flex-direction:column;gap:8px;min-height:90px}
+.visit-card-title{display:flex;align-items:center;gap:10px}
+.visit-icon{display:grid;place-items:center;flex:none;width:40px;height:40px;background:var(--gold);border-radius:50%}
+.visit-icon img{width:20px;height:20px}
+.visit-card h3{font-size:20px;line-height:1.2;font-weight:700}
+.visit-card .mobile-title{display:none}
+.visit-card-intro p{font-size:14px;line-height:1.5;color:#6b5b45;max-width:564px}
+.visit-times{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.visit-times .hours-card{width:100%;min-width:0;min-height:77px;height:77px;padding:16px;gap:16px;background:#fcfcfc}
+.visit-times .hours-card>span:last-child{min-width:0}
+.visit-times .day-badge{display:grid;place-items:center;width:48px;height:33px;padding:0}
+.visit-times .hours-card strong{font-size:14px;line-height:1.4;color:#222;overflow:hidden;text-overflow:ellipsis}
+.visit-times .hours-card small{font-size:14px;line-height:1.5}
+.visit-card>.button{align-self:flex-start;min-height:48px;padding:15px 28px;margin-top:auto}
+.enrollment .steps li{min-height:57px}
+.enrollment .steps li:not(:last-child)::after{height:29px;top:28px;border-left:1px dotted #b4aca1}
+.enrollment .steps li:last-child{min-height:auto}
+.home-hero-copy h1,.hero-reception{animation:hero-enter .7s cubic-bezier(.22,1,.36,1) both}
+.hero-reception{animation-delay:.18s}
+.footer-main{display:flex;justify-content:space-between;gap:0}
+.footer-brand{width:370px;flex:none}
+.footer-links{width:90px;margin-left:auto}
+.footer-contact{width:220px;margin-left:119px}
+.footer-contact a,.footer-contact .fax-line{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.footer-contact img{width:16px;height:16px;flex:none}
+.footer-contact .fax-line{font-size:14px;line-height:1.5}
+
+/* Booking drawer: clinic, doctor and details steps */
+#booking-dialog{width:min(520px,100vw)}
+.dialog-frame{padding:40px;min-height:100dvh}
+.dialog-close{right:24px;top:22px;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#f7f7f7;color:#152033;font-size:30px;font-weight:300}
+#booking-form{min-height:calc(100dvh - 80px);gap:0}
+.form-intro{gap:16px;margin:0 0 32px;padding-right:0}
+.form-intro h2{font-size:28px;letter-spacing:-.05em}
+.form-intro p{font-size:14px;color:var(--ink)}
+.booking-step{margin-bottom:32px}
+.booking-step-header{display:flex;flex-direction:column;gap:4px;margin-bottom:16px}
+.booking-step-header strong{color:var(--gold);font-size:16px;line-height:1.4;font-weight:600}
+.booking-step-header span{font-size:14px;line-height:1.4;color:#525252;font-weight:500}
+.clinic-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.clinic-option{position:relative;display:flex;flex-direction:column;min-width:0;height:180px;padding:0;text-align:left;overflow:hidden;border:2px solid #e2e8f0;border-radius:16px;background:#fff;color:var(--slate)}
+.clinic-option:hover,.clinic-option[aria-pressed="true"]{border-color:var(--gold)}
+.clinic-option img{width:100%;height:94px;object-fit:cover}
+.clinic-option-info{display:flex;flex-direction:column;gap:6px;padding:12px 10px 10px;min-width:0}
+.clinic-option strong{font-size:13px;line-height:1.3}
+.clinic-option small{font-size:11px;line-height:1.4}
+.selection-tag{position:absolute;right:10px;top:10px;background:var(--gold);color:#fff;border-radius:100px;padding:4px 8px;font-size:10px;font-weight:600;line-height:1.4}
+.clinic-option:not([aria-pressed="true"]) .selection-tag{display:none}
+.doctor-prompt{border:2px dashed #e2e8f0;border-radius:16px;padding:16px 12px;display:flex;flex-direction:column;gap:4px;font-size:12px}
+.doctor-prompt[hidden]{display:none}
+.doctor-prompt strong{font-size:14px}
+.doctor-prompt span{color:#525252}
+.doctor-selection{display:none;flex-direction:column;gap:16px}
+.doctor-selection.is-visible{display:flex}
+.doctor-selection-header{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.doctor-selection-header strong{font-size:14px;color:var(--gold)}
+.doctor-clinic-tag{background:#e0f2fe;color:#1e3a8a;border-radius:100px;padding:6px 14px;font-size:12px;white-space:nowrap}
+.booking-doctor-roster{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px;scrollbar-width:thin}
+.booking-doctor{flex:none;width:220px;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:10px;border:2px solid #e2e8f0;border-radius:24px;background:#fff;text-align:left;scroll-snap-align:start}
+.booking-doctor:hover,.booking-doctor[aria-pressed="true"]{border-color:var(--gold)}
+.booking-doctor-photo{height:160px;width:100%;border-radius:16px;background:#f6f6f6}
+.booking-doctor-name{font-size:16px;line-height:1.4;font-weight:700;color:#533400}
+.booking-doctor-credentials{font-size:12px;line-height:1.4;color:var(--slate);min-height:17px}
+.booking-doctor-status{display:flex;align-items:center;gap:6px;margin-top:auto;font-size:12px}
+.booking-doctor-status .status-badge{margin:0}
+.booking-doctor-selected{margin-left:auto;border-radius:100px;background:var(--gold);color:#fff;padding:4px 8px;font-size:10px;font-weight:600}
+.booking-doctor:not([aria-pressed="true"]) .booking-doctor-selected{display:none}
+.booking-details{margin-bottom:28px}
+.form-fields{gap:16px}
+.form-fields .reason-field{grid-column:1/-1}
+.form-bottom{margin-top:0}
+.booking-message{margin:0 0 16px}
+
+@media(max-width:1100px) and (min-width:701px){
+  .home-hero-layout{grid-template-columns:minmax(0,1fr) minmax(0,46%);gap:28px}
+  .home-hero h1{font-size:clamp(36px,4vw,48px)}
+  .hero-reception{width:100%;height:auto;aspect-ratio:598/466}
+  .hero-reception img{width:110%;height:auto;left:-3%}
+  .visit-cards{grid-template-columns:1fr}
+  .visit-card{min-height:0}
+  .visit-times .hours-card strong{overflow:visible}
+}
+@media(max-width:700px){
+  body[data-page="home"] .site-header{height:91px}
+  .home-hero{padding:0}
+  .home-hero-layout{display:flex;flex-direction:column;align-items:stretch;gap:32px;min-height:0;padding:52px 0}
+  .home-hero-copy{gap:16px}
+  .home-hero h1{font-size:32px;line-height:1.2;letter-spacing:-.03em;font-weight:700}
+  .home-hero-aside{width:100%;gap:24px}
+  .home-hero-aside p{font-size:14px;line-height:1.5}
+  .home-hero .button-row{gap:10px}
+  .home-hero .button-row .button{width:100%}
+  .home-hero .button-row .button:first-child{height:54px}
+  .home-hero .button-row .button:last-child{height:57px}
+  .hero-reception{width:100%;height:auto;aspect-ratio:342/201}
+  .hero-reception img{position:static;width:100%;height:100%;object-fit:contain}
+  .home-hours{padding:32px 0 116px}
+  .home-hours .hours-intro{display:none}
+  .visit-cards{grid-template-columns:1fr;gap:24px}
+  .visit-card{min-height:0;padding:16px;gap:24px;border-radius:20px}
+  .visit-card-intro{min-height:0}
+  .visit-card h3{font-size:20px}
+  .visit-card .desktop-title{display:none}
+  .visit-card .mobile-title{display:inline}
+  .visit-times{grid-template-columns:1fr;gap:16px}
+  .visit-times .hours-card{min-height:77px;height:77px;padding:16px}
+  .visit-times .hours-card strong{font-size:14px}
+  .visit-card>.button{width:100%;align-self:stretch;height:48px}
+  .enrollment .steps li{font-size:16px;line-height:1.5;min-height:101px;letter-spacing:-.04em}
+  .enrollment .steps li:last-child{min-height:54px}
+  .enrollment .steps li:not(:last-child)::after{height:73px}
+  .enrollment h2{font-size:26px;line-height:1.2;letter-spacing:-.05em}
+  .faq-section,.faq-section.is-mobile-open{display:block;padding:80px 0}
+  .faq-layout .section-heading h2{font-size:36px;line-height:1.2;letter-spacing:-.05em;font-weight:700}
+  .faq-layout .section-heading p{font-size:16px;line-height:1.5;max-width:203px}
+  .faq-list{margin-top:24px;gap:16px}
+  .faq-item summary{font-size:12px}
+  .site-footer{min-height:574px}
+  .footer-main{display:grid;grid-template-columns:minmax(0,100px) minmax(0,1fr);gap:32px 22px}
+  .footer-brand{width:auto;grid-column:1/-1}
+  .footer-links,.footer-contact{width:auto;margin:0}
+  .footer-contact .fax-line{font-size:12px}
+  #booking-dialog{width:100vw}
+  .dialog-frame{padding:96px 16px 32px}
+  .dialog-close{top:28px;right:16px}
+  #booking-form{min-height:calc(100dvh - 128px)}
+  .form-intro{margin-bottom:24px}
+  .form-intro h2{font-size:24px}
+  .form-intro p{font-size:14px}
+  .booking-step{margin-bottom:28px}
+  .clinic-option-info{padding:10px}
+  .clinic-option strong{font-size:12px}
+  .clinic-option small{font-size:10px}
+  .form-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .form-fields label{min-width:0}
+  .form-fields input{padding:10px;font-size:11px}
+  .form-fields textarea{height:120px}
+}
+@media(prefers-reduced-motion:reduce){.hero-reception{animation:none}}

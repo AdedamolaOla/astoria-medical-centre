@@ -3,14 +3,6 @@
  * identities. Replace these entries with clinic-approved profiles and verify
  * availability before treating this public prototype as an operational site.
  */
-const homeServices = [
-  { icon: "routine", title: "Routine Check-ups", description: "Regular health evaluations to monitor and maintain your well-being." },
-  { icon: "preventive", title: "Preventive Care", description: "Vaccinations, screenings, and wellness advice to prevent illness and promote healthy lifestyles." },
-  { icon: "chronic", title: "Chronic Disease Management", description: "Ongoing care and support for conditions such as diabetes, hypertension, and asthma." },
-  { icon: "pediatric", title: "Pediatric Care", description: "Well-child visits, vaccinations, and developmental screenings for children of all ages." },
-  { icon: "geriatric", title: "Geriatric Care", description: "Comprehensive geriatric assessments and management of age-related conditions." },
-  { icon: "mental", title: "Mental Health Services", description: "Support and treatment for conditions such as depression, anxiety, and stress-related issues." }
-];
 const serviceDetails = [
   { icon: "routine", title: "Routine Check-ups", description: "Thoughtful, unhurried visits that establish your health baseline and keep small changes from becoming larger concerns.", benefits: ["Physical exams and health history", "Medication and lifestyle review", "Personalized follow-up plan"] },
   { icon: "preventive", title: "Preventive Care", description: "Age-appropriate prevention shaped around your history, risks, goals, and the realities of your daily life.", benefits: ["Immunizations and screening plans", "Heart and metabolic health checks", "Practical nutrition and sleep guidance"] },
@@ -51,18 +43,9 @@ const footer = document.querySelector("#site-footer");
 footer.innerHTML = `<footer class="site-footer" id="contact"><div class="container footer-main">
   <div class="footer-brand"><a class="footer-logo" href="index.html" aria-label="Astoria Medical Centre home"><img src="assets/astoria-logo-icon-white.svg" alt=""><img src="assets/astoria-logo-wordmark-white.svg" alt=""></a><p>Your trusted primary care and clinical walk-in facility. Dedicated to exceptional patient experiences, accessibility, and modern medical practices.</p></div>
   <div class="footer-links"><h2>Quick Links</h2><a href="index.html">Home</a><a href="about.html">About Us</a><a href="team.html">Our Team</a><a href="services.html">Services</a><a href="index.html#faq">FAQ</a><a href="#contact">Contact</a></div>
-  <div class="footer-contact"><h2>Contact Astoria</h2><a href="mailto:info@astoriamedicalcentre.ca">Support Email: info@astoriamedicalcentre.ca</a><a href="tel:+13434781009">Phone: +1 343-478-1009</a></div>
+  <div class="footer-contact"><h2>Contact Astoria</h2><a href="mailto:info@astoriamedicalcentre.ca"><img src="assets/icons/footer-email.svg" alt="">info@astoriamedicalcentre.ca</a><a href="tel:+13434781009"><img src="assets/icons/footer-phone.svg" alt="">+1 343-478-1009</a><span class="fax-line"><img src="assets/icons/footer-fax.svg" alt="">+1 XXX-XXX-XXXX</span></div>
 </div><div class="container footer-bottom"><small>© Astoria Medical Centre. All rights reserved.</small><div class="social-icons" aria-label="Social media icons"><span class="social-icon"><img src="assets/icons/social-facebook.svg" alt=""></span><span class="social-icon"><img src="assets/icons/social-twitter.svg" alt=""></span><span class="social-icon"><img src="assets/icons/social-instagram.svg" alt=""></span><span class="social-icon"><img src="assets/icons/social-linkedin.svg" alt=""></span></div></div></footer>`;
 
-const homeGrid = document.querySelector("#home-service-grid");
-if (homeGrid) for (const service of homeServices) {
-  const card = document.createElement("article");
-  card.className = "home-service-card";
-  card.innerHTML = `<img src="assets/icons/home-${service.icon}.svg" alt=""><h3></h3><p></p>`;
-  card.querySelector("h3").textContent = service.title;
-  card.querySelector("p").textContent = service.description;
-  homeGrid.append(card);
-}
 const doctorGrid = document.querySelector("#doctor-grid");
 if (doctorGrid) for (const doctor of doctors) {
   const card = document.createElement("article");
@@ -91,20 +74,73 @@ if (detailGrid) for (const service of serviceDetails) {
 const panel = document.querySelector("#booking-panel");
 panel.innerHTML = `<dialog id="booking-dialog" aria-labelledby="booking-title">
   <div class="dialog-frame"><button type="button" class="dialog-close" aria-label="Close appointment form">×</button>
-    <form id="booking-form">
+    <form id="booking-form" novalidate>
       <div class="form-intro"><h2 id="booking-title">Book Appointment</h2><p>Scheduling an appointment is easy and convenient. We are committed to providing timely and efficient healthcare services to our patients.</p></div>
+      <div class="booking-step">
+        <div class="booking-step-header"><strong>Step 1</strong><span>Select your preferred clinic location</span></div>
+        <div class="clinic-options" role="group" aria-label="Clinic location">
+          <button class="clinic-option" type="button" data-clinic="broadview" aria-pressed="false"><img src="assets/clinic-broadview.webp" alt=""><span class="selection-tag">Selected</span><span class="clinic-option-info"><strong>Broadview Clinic</strong><small>Unit 209, 770 Broadview Avenue, Ottawa, ON K2A 3Z3</small></span></button>
+          <button class="clinic-option" type="button" data-clinic="centrepointe" aria-pressed="false"><img src="assets/clinic-centrepointe.webp" alt=""><span class="selection-tag">Selected</span><span class="clinic-option-info"><strong>Centrepointe Clinic</strong><small>Suite 302, 1 Centrepointe Drive, Ottawa, ON K2G 6E2</small></span></button>
+        </div>
+      </div>
+      <div class="booking-step">
+        <div class="booking-step-header"><strong>Step 2</strong><span>Choose your doctor</span></div>
+        <div class="doctor-prompt" id="doctor-prompt"><strong>Choose a doctor</strong><span>Doctor options depend on the selected clinic</span></div>
+        <div class="doctor-selection" id="doctor-selection"><div class="doctor-selection-header"><strong>Available Physicians</strong><span class="doctor-clinic-tag" id="doctor-clinic-tag"></span></div><div class="booking-doctor-roster" id="booking-doctor-roster" role="group" aria-label="Available physicians"></div></div>
+      </div>
+      <div class="booking-step booking-details">
+        <div class="booking-step-header"><strong>Step 3</strong><span>Fill in your details</span></div>
       <div class="form-fields">
-        <label>Your Name<input type="text" name="name" placeholder="E.g. John Doe" autocomplete="name" required></label>
-        <label>Your Email<input type="email" name="email" placeholder="E.g. john@example.com" autocomplete="email" required></label>
-        <label>Your Phone<input type="tel" name="phone" placeholder="E.g. +1 (555) 000-0000" autocomplete="tel" required></label>
-        <label>Your Family Doctor<select name="doctor" required><option>Dr. Samuel Babatunde</option></select></label>
-        <label class="reason-field">Please provide us with the reason of the appointment<textarea name="reason" placeholder="Briefly describe your symptoms or the clinical service you require..." rows="5" required></textarea></label>
+        <label>Your First Name<input type="text" name="first_name" placeholder="E.g. John Doe" autocomplete="given-name"></label>
+        <label>Your Last Name<input type="text" name="last_name" placeholder="E.g. john@example.com" autocomplete="family-name"></label>
+        <label>Your Phone<input type="tel" name="phone" placeholder="E.g. +1 (555) 000-0000" autocomplete="tel"></label>
+        <label>Your Email<input type="email" name="email" placeholder="E.g. john@example.com" autocomplete="email"></label>
+        <label class="reason-field">Please provide us with the reason of the appointment<textarea name="reason" placeholder="Briefly describe your symptoms or the clinical service you require..." rows="5"></textarea></label>
+      </div>
       </div>
       <div class="form-bottom"><p class="booking-message" id="booking-message" role="status">Online requests are not active yet. Please call the clinic to arrange an appointment; do not enter sensitive health details here.</p><button class="button button-primary" type="submit">Confirm your Appointment</button></div>
     </form>
   </div>
 </dialog>`;
 const dialog = document.querySelector("#booking-dialog");
+const bookingDoctors = [
+  { name: "Dr. Name", credentials: "MD, CCFP, Family Medicine" },
+  { name: "Dr. Name", credentials: "MD, FRCPC, Internal Medicine" },
+  { name: "Dr. Name", credentials: "MD, CCFP, Pediatric Care" }
+];
+const clinicNames = { broadview: "Broadview Clinic", centrepointe: "Centrepointe Clinic" };
+const clinicOptions = [...document.querySelectorAll(".clinic-option")];
+const doctorPrompt = document.querySelector("#doctor-prompt");
+const doctorSelection = document.querySelector("#doctor-selection");
+const doctorRoster = document.querySelector("#booking-doctor-roster");
+let selectedClinic = null;
+let selectedDoctor = null;
+function selectDoctor(index) {
+  selectedDoctor = index;
+  doctorRoster.querySelectorAll(".booking-doctor").forEach((card, i) => card.setAttribute("aria-pressed", String(i === index)));
+}
+function selectClinic(clinic) {
+  selectedClinic = clinic;
+  selectedDoctor = null;
+  clinicOptions.forEach(option => option.setAttribute("aria-pressed", String(option.dataset.clinic === clinic)));
+  document.querySelector("#doctor-clinic-tag").textContent = clinicNames[clinic];
+  doctorPrompt.hidden = true;
+  doctorSelection.classList.add("is-visible");
+  doctorRoster.replaceChildren();
+  bookingDoctors.forEach((doctor, index) => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "booking-doctor";
+    card.setAttribute("aria-pressed", "false");
+    card.setAttribute("aria-label", `${doctor.name}, ${doctor.credentials}, accepting patients`);
+    card.innerHTML = '<span class="booking-doctor-photo" aria-hidden="true"></span><span class="booking-doctor-name"></span><span class="booking-doctor-credentials"></span><span class="booking-doctor-status"><span class="status-badge accepting"><span class="status-dot"></span>Accepting</span><span class="booking-doctor-selected">Selected</span></span>';
+    card.querySelector(".booking-doctor-name").textContent = doctor.name;
+    card.querySelector(".booking-doctor-credentials").textContent = doctor.credentials;
+    card.addEventListener("click", () => selectDoctor(index));
+    doctorRoster.append(card);
+  });
+}
+clinicOptions.forEach(option => option.addEventListener("click", () => selectClinic(option.dataset.clinic)));
 const menuToggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".site-menu");
 menuToggle.addEventListener("click", () => {
@@ -163,8 +199,7 @@ revealMobileFaq();
 // Reveal each section once it enters view. Content stays visible without motion support.
 if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
   const revealTargets = document.querySelectorAll([
-    ".hours-intro", ".hours-grid", ".enrollment-image", ".enrollment-copy",
-    ".home-services .section-heading", ".home-service-card",
+    ".hours-intro", ".visit-card", ".enrollment-image", ".enrollment-copy",
     ".physicians .section-heading", ".doctor-card", ".faq-layout > *",
     ".story-layout > *", ".life-heading > *", ".life-layout > *",
     ".values-heading > *", ".value-card", ".community-layout > *",
@@ -179,7 +214,7 @@ if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: re
   }, { rootMargin: "0px 0px -8% 0px", threshold: 0 });
   revealTargets.forEach((element, index) => {
     // Small offsets make adjacent cards arrive in sequence without holding up a row.
-    if (element.matches(".home-service-card,.doctor-card,.value-card,.detail-card")) {
+    if (element.matches(".visit-card,.doctor-card,.value-card,.detail-card")) {
       element.style.setProperty("--reveal-delay", `${(index % 3) * 65}ms`);
     }
     element.classList.add("reveal-on-scroll");
