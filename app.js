@@ -113,13 +113,56 @@ const clinicOptions = [...document.querySelectorAll(".clinic-option")];
 const doctorPrompt = document.querySelector("#doctor-prompt");
 const doctorSelection = document.querySelector("#doctor-selection");
 const doctorRoster = document.querySelector("#booking-doctor-roster");
+const doctorCarouselControls = document.createElement("div");
+doctorCarouselControls.className = "doctor-carousel-controls";
+doctorCarouselControls.innerHTML = '<button type="button" class="doctor-previous" aria-label="Previous doctors" aria-controls="booking-doctor-roster">Previous</button><span class="doctor-page-status" aria-live="polite" aria-atomic="true"></span><button type="button" class="doctor-next" aria-label="Next doctors" aria-controls="booking-doctor-roster">Next</button>';
+doctorRoster.after(doctorCarouselControls);
+const doctorPrevious = doctorCarouselControls.querySelector(".doctor-previous");
+const doctorNext = doctorCarouselControls.querySelector(".doctor-next");
+const doctorPageStatus = doctorCarouselControls.querySelector(".doctor-page-status");
+const mobileDoctors = matchMedia("(max-width: 700px)");
+let doctorPage = 0;
 let selectedClinic = null;
 let selectedDoctor = null;
+function updateDoctorPage() {
+  const cards = [...doctorRoster.querySelectorAll(".booking-doctor")];
+  const perPage = mobileDoctors.matches ? 1 : 2;
+  const pageCount = Math.ceil(cards.length / perPage);
+  doctorPage = Math.max(0, Math.min(doctorPage, pageCount - 1));
+  cards.forEach((card, index) => {
+    card.hidden = Math.floor(index / perPage) !== doctorPage;
+  });
+  doctorPrevious.disabled = doctorPage === 0;
+  doctorNext.disabled = doctorPage >= pageCount - 1;
+  doctorPageStatus.textContent = `${doctorPage + 1} of ${pageCount}`;
+  doctorCarouselControls.hidden = pageCount < 2;
+}
+doctorPrevious.addEventListener("click", () => { doctorPage--; updateDoctorPage(); });
+doctorNext.addEventListener("click", () => { doctorPage++; updateDoctorPage(); });
+mobileDoctors.addEventListener("change", () => {
+  doctorPage = Math.floor((selectedDoctor ?? doctorPage * (mobileDoctors.matches ? 2 : 1)) / (mobileDoctors.matches ? 1 : 2));
+  updateDoctorPage();
+});
+let doctorTouchStart = null;
+doctorRoster.addEventListener("touchstart", event => {
+  const touch = event.changedTouches[0];
+  doctorTouchStart = { x: touch.clientX, y: touch.clientY };
+}, { passive: true });
+doctorRoster.addEventListener("touchend", event => {
+  if (!doctorTouchStart) return;
+  const touch = event.changedTouches[0];
+  const dx = touch.clientX - doctorTouchStart.x;
+  const dy = touch.clientY - doctorTouchStart.y;
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+    doctorPage += dx < 0 ? 1 : -1;
+    updateDoctorPage();
+  }
+  doctorTouchStart = null;
+}, { passive: true });
 function selectDoctor(index) {
   selectedDoctor = index;
   doctorRoster.querySelectorAll(".booking-doctor").forEach((card, i) => {
     card.setAttribute("aria-pressed", String(i === index));
-    if (i === index) card.scrollIntoView({ block: "nearest", inline: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   });
 }
 function selectClinic(clinic) {
@@ -142,7 +185,8 @@ function selectClinic(clinic) {
     card.addEventListener("click", () => selectDoctor(index));
     doctorRoster.append(card);
   });
-  doctorRoster.scrollLeft = 0;
+  doctorPage = 0;
+  updateDoctorPage();
 }
 clinicOptions.forEach(option => option.addEventListener("click", () => selectClinic(option.dataset.clinic)));
 const menuToggle = document.querySelector(".menu-toggle");
@@ -225,3 +269,4 @@ if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: re
     observer.observe(element);
   });
 }
+
